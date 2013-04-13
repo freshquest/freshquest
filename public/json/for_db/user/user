@@ -1,0 +1,46 @@
+	{
+		"email" : "syrfreshquest@gmail.com",
+		"id" : "5160d4a5412ee6343a00000e",
+		"user_id" : "5160d4a5412ee6343a00000e",
+		"password" : "fresh",
+		"isFarrmer" : false,
+		"farms" : [
+			{
+				"id" : "5160d4a5412ee6343a00000e",
+				"rating" : "5",
+				"isFavorite" : true
+			},
+			{
+				"id" : "5160d4ad412ee6343a00000f",
+				"rating" : "4",
+				"isFavorite" : true
+			},
+			{
+				"id" : "5160d4b4412ee6343a000010",
+				"slug" : "reeves_farms",
+				"rating" : "3"
+			}
+		],
+		"shoppingList" : [
+			{
+				"id" : "5160d4a5412ee6343a00000e",
+				"products" : {
+					"Acorn Squash" : false,
+					"Apples, Gala" : true,
+					"Blueberries" : false
+				}
+			},
+			{
+				"id" : "5160d4ad412ee6343a00000f",
+				"products" : {
+					"Mushrooms" : false
+				}
+			},
+			{
+				"id" : "5160d4b4412ee6343a000010",
+				"products" : {
+					"Radishes" : false
+				}
+			}
+		]
+	}

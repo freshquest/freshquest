@@ -1,0 +1,21 @@
+{
+    "id" : "5160d4a5412ee6343a00000e",
+	"farmerId" : "5160d4a5412ee6343a00000e",
+    "user_id" : "5160d4a5412ee6343a00000e",
+	"shed" : "1",
+	"stall" : "102",
+	"sellSheet" : {
+		"Apples, Gala" : {
+			"price" : 2,
+			"units" : "half peck"
+		},
+		"Acorn Squash" : {
+			"price" : 1.50,
+			"units" : "pc"
+		},
+		"Blueberries" : {
+			"price" : 4,
+			"units" : "pt"
+		}
+	}
+}

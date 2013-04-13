@@ -1,0 +1,247 @@
+[
+	{
+		"name" : "Wake Robin Farm",
+		"slug" : "wake_robin_farm",
+		"location" : "Jordan, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 3.8,
+		"distance": 3.5,
+		"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+		"iconImage": "/img/farm/wake_robin_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/wake_robin_farm/0001.jpg",
+			"/img/farm/wake_robin_farm/0002.jpg"
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 1
+		},
+		"isFavorite": true
+	},
+	{
+		"name" : "MuMu Museli",
+		"slug" : "mu_mu_museli",
+		"location" : "Sharon Springs",
+		"latitude" : 42.729992,
+		"longitude" : -76.243193,
+		"aggregateRating" : 3.5,
+		"distance": 24.3,
+		"headerImage": "/img/farm/mu_mu_museli/header.jpg",
+		"iconImage": "/img/farm/mu_mu_museli/logo.jpg",
+		"photoImages" : [
+			"/img/farm/mu_mu_museli/0001.jpg",
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 2,
+			"stall" : 4
+		},
+		"isFavorite": true
+	},
+		{
+		"name" : "Daily Harvest Farm",
+		"slug" : "huck_farm",
+		"location" : "Fabius, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 4.1,
+		"distance": 21.5,
+		"headerImage": "/img/farm/daily_harvest_farm/header.jpg",
+		"iconImage": "/img/farm/daily_harvest_farm/logo.png",
+		"photoImages" : [
+			""
+		],
+		"about" : "Daily Harvest Farm is a small family farm based in Central New York growing a variety of fresh vegetables, herbs, and flowers available from May-November.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 2,
+			"stall" : 2
+		},
+		"isFavorite": false
+	},
+		{
+		"name" : "Lan’s Flower Farm",
+		"slug" : "huck_farm",
+		"location" : "Clay, NY",
+		"latitude" : 43.190159,
+		"longitude" : -76.177883,
+		"aggregateRating" : 3.5,
+		"distance": 7.9,
+		"headerImage": "/img/farm/lans_flower_farm/header.jpg",
+		"iconImage": "/img/farm/lans_flower_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/lans_flower_farm/0001.jpg",
+		],
+		"about" : "Lan's Flower farm offers one of the largest selections of perennials in the CNY region- started in 2005, Mark and Xiao are devoted to the meticulous care, maintenance and ever expanding varieties at their farm.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 6
+		},
+		"isFavorite": false
+	},
+		{
+		"name" : "Huckleberry Farm",
+		"slug" : "huck_farm",
+		"location" : "Canastota, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 3.5,
+		"distance": 7.1,
+		"homepage" : "http://www.wakerobinfarm.org/",
+		"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+		"iconImage": "/img/farm/wake_robin_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/wake_robin_farm/0001.jpg",
+			"/img/farm/wake_robin_farm/0002.jpg"
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 1
+		},
+		"isFavorite": false
+	},
+	{
+		"name" : "Huckleberry Farm",
+		"slug" : "huck_farm",
+		"location" : "Canastota, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 3.5,
+		"distance": 19.5,
+		"homepage" : "http://www.wakerobinfarm.org/",
+		"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+		"iconImage": "/img/farm/wake_robin_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/wake_robin_farm/0001.jpg",
+			"/img/farm/wake_robin_farm/0002.jpg"
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 1
+		},
+		"isFavorite": false
+	},
+	{
+		"name" : "Huckleberry Farm",
+		"slug" : "huck_farm",
+		"location" : "Canastota, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 3.5,
+		"distance": 32.5,
+		"homepage" : "http://www.wakerobinfarm.org/",
+		"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+		"iconImage": "/img/farm/wake_robin_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/wake_robin_farm/0001.jpg",
+			"/img/farm/wake_robin_farm/0002.jpg"
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 1
+		},
+		"isFavorite": false
+	},
+	{
+		"name" : "Huckleberry Farm",
+		"slug" : "huck_farm",
+		"location" : "Canastota, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 3.5,
+		"distance": 25.7,
+		"homepage" : "http://www.wakerobinfarm.org/",
+		"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+		"iconImage": "/img/farm/wake_robin_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/wake_robin_farm/0001.jpg",
+			"/img/farm/wake_robin_farm/0002.jpg"
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 1
+		},
+		"isFavorite": false
+	},
+	{
+		"name" : "Huckleberry Farm",
+		"slug" : "huck_farm",
+		"location" : "Canastota, NY",
+		"latitude" : 43.055582,
+		"longitude" : -76.492991,
+		"aggregateRating" : 3.5,
+		"distance": 41.7,
+		"homepage" : "http://www.wakerobinfarm.org/",
+		"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+		"iconImage": "/img/farm/wake_robin_farm/logo.jpg",
+		"photoImages" : [
+			"/img/farm/wake_robin_farm/0001.jpg",
+			"/img/farm/wake_robin_farm/0002.jpg"
+		],
+		"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum.",
+		"marketDayBooth" : {
+			"sellSheet" : {	
+				"Apples, Gala" : {
+					"price" : 2,
+					"units" : "half peck"
+				}
+			},
+			"shed" : 1,
+			"stall" : 1
+		},
+		"isFavorite": false
+	}
+]

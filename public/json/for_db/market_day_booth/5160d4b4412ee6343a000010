@@ -1,0 +1,13 @@
+{
+	"id" : "5160d4b4412ee6343a000010",
+	"farmerId" : "5160d4b4412ee6343a000010",
+	"user_id" : "5160d4b4412ee6343a000010",
+	"shed" : "2",
+	"stall" : "101",
+	"sellSheet" : {
+		"Radishes" : {
+			"price" : 2,
+			"units" : "bunch"
+		}
+	}
+}

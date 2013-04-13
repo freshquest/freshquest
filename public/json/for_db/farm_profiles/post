@@ -1,0 +1,5 @@
+#!/bin/bash
+
+curl -H "Content-Type: application/json" -d @5160d4a5412ee6343a00000e http://freshquest.me:3000/farm_profiles.json
+curl -H "Content-Type: application/json" -d @5160d4ad412ee6343a00000f http://freshquest.me:3000/farm_profiles.json
+curl -H "Content-Type: application/json" -d @5160d4b4412ee6343a000010 http://freshquest.me:3000/farm_profiles.json

@@ -1,0 +1,13 @@
+{
+	"id" : "5160d4ad412ee6343a00000f",
+	"farmerId" : "5160d4ad412ee6343a00000f",
+	"user_id" : "5160d4ad412ee6343a00000f",
+	"shed" : "1",
+	"stall" : "105",
+	"sellSheet" : {
+		"Mushrooms" : {
+			"price" : 5,
+			"units" : "3 pounds"
+		}
+	}
+}

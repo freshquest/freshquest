@@ -1,0 +1,103 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+
+	nav ul#nlists { 
+		list-style: none;
+		font-family: 'Raleway', Arial, sans-serif;
+	}
+	nav ul#nlists li {
+	  border-bottom: 1px solid #d9e2eb;
+	  background: #fff;
+	  display: block;
+	  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff) to(#ecf1f5));
+	  background-image: -webkit-linear-gradient(top, #ffffff, #ecf1f5);
+	  background-image: -moz-linear-gradient(top, #ffffff, #ecf1f5);
+	  background-image: -o-linear-gradient(top, #ffffff, #ecf1f5);
+	  background-image: linear-gradient(top, #ffffff, #ecf1f5);
+	}
+	
+	nav ul#nlists li a {
+	  position: relative;
+	  display: block;
+	  box-sizing: border-box;
+	  width: 100%;
+	  padding: 15px 0px;
+	  padding-left: 10px;
+	  text-decoration: none;
+	  font-size: .8em;
+	  line-height: 1em;
+	  /*text-transform: uppercase;*/
+	  color: #787878;
+	  overflow: hidden;
+	  
+	  
+	}
+	nav ul#nlists li a:hover { color: #999; }
+	
+	.farm_dist {
+	font-size: .75em;
+    text-align: left;
+	line-height:140%;
+	}
+	
+	input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+	vertical-align:middle;
+	}
+	.row.shop_hdr{
+		line-height: 1.3em;
+		font-weight: bold;
+		margin-left: 30px;
+	}
+	
+	.row.shopping {
+		line-height: 1.3em;
+		border-top: 1px solid #999999;
+		padding-bottom: 0;
+		font-size: 15px;
+		/*margin-left: 30px;*/
+	}
+	.row.farmer{
+		font-size: 1.25em;
+		margin-bottom: 2px;
+		color: #33CC66;
+		font-weight: bold;
+	}
+	.delshopitem {
+		font-family: 'Entypo';
+		font-size: 2em;
+		-webkit-transition: color .5s;
+		-moz-transition: color .5s;
+		-ms-transition: color .5s;
+		-o-transition: color .5s;
+		transition: color .5s;
+	
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}

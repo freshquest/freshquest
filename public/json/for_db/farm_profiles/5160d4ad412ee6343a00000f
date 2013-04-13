@@ -1,0 +1,21 @@
+{
+    "id" : "5160d4ad412ee6343a00000f",
+    "user_id" : "5160d4ad412ee6343a00000f",
+	"name" : "Monarch Farm",
+	"slug" : "monarch_farm",
+	"email" : "syrfreshquest@gmail.com",
+	"location" : "Jordan, NY",
+	"latitude" : 43.055582,
+	"longitude" : -76.492991,
+	"aggregateRating" : 3.8,
+	"distance" : 12.5,
+	"homepage" : "http://www.wakerobinfarm.org/",
+	"facebook" : "pages/Wake-Robin-Farm/54531274844",
+	"headerImage": "/img/farm/wake_robin_farm/header.jpg",
+	"iconImage": "/img/farm/abbott_farms/logo.png",
+	"photoImages" : [
+		"/img/farm/wake_robin_farm/0001.jpg",
+		"/img/farm/wake_robin_farm/0002.jpg"
+	],
+	"about" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim turpis sit amet ante faucibus consequat. Ut nec eros tellus. Maecenas sit amet mi ut ante pretium volutpat a iaculis nisi. Nulla felis dolor, imperdiet ut faucibus id, accumsan a lacus. Integer lobortis elit ut magna tincidunt pulvinar vestibulum lorem facilisis. Proin lectus nibh, convallis at porttitor at, varius eget neque. Proin porttitor urna fringilla mi adipiscing vestibulum."
+}

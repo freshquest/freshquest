@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -H "Content-Type: application/json" -d @user http://freshquest.me:3000/users.json

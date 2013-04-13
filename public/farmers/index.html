@@ -1,0 +1,118 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>FreshQuest</title>
+	<meta name="description" content="Find stuff at your local farmer's market easier."/>
+	
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<meta property="og:title" content="Localist" />
+	<meta property="og:description" content="Find stuff at your local farmer's market easier." />
+	<meta property="og:url" content="http://www.freshquest.me" />
+	
+	<link rel="icon" type="image/x-icon" href="/img/favicon.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+	
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,700"/>
+	<link type="text/css" rel="stylesheet" href="/css/1140.css"/>
+	<link type="text/css" rel="stylesheet" href="/css/styles.css"/>
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+	<script type="text/javascript" src="/js/default.js"></script>
+	
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" />
+	<script src="/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header class="container main">
+		<div class="row">
+			<div class="threecol">
+				<a href="#" id="mobile_menu">&#9776;</a>
+				<h1><a href="/"><img src="/img/freshquest_logo.png"/></a></h1>
+			</div>
+			<div class="ninecol last">
+				<nav class="main">
+					<ul>
+						<li><a href="/products">Produce</a></li>
+						<li><a href="/farmers">Farms</a></li>
+						<li><a href="/list">List</a>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Log out</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<nav class="mobile">
+		<ul>
+			<li><a href="/products">Produce</a></li>
+			<li><a href="/farmers">Farms</a></li>
+			<li><a href="/list">List</a>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Log out</a></li>
+		</ul>
+	</nav>
+	<div id="farms" class="container">
+		<div class="row lineBottom name">
+			<div class="twelvecol">
+				<h2>Farmers</h2>
+			</div>
+		</div>
+	</div>
+	<div id="template_farm" class="template">
+		<li class="row product_farm">
+			<a href="/farmers/detail.html#{slug}" class="block">
+				<div class="twocol center">
+					<img src="{iconImage}"/>
+				</div>
+				<div class="tencol last">
+					<h3>{name}</h3>
+					<div class="row">
+						<div class="fourcol">
+							{location}
+						</div>
+						<div class="twocol">
+							{distance} miles
+						</div>
+						<div class="threecol">
+							Shed {shed}, Stall {stall}
+						</div>
+						<div class="threecol last">
+							<span class="rank">{rank}</span>
+						</div>
+					</div>
+				</div>
+			</a>
+		</li>
+	</div>
+	<footer id="footer" class="container main">
+		<div class="row">
+			<div class="ninecol">
+				<h2>FreshQuest</h2>
+				<p>FreshQuest is all about food! More appropriately it's about people who are on a quest to find fresh, locally grown produce at the CNY Regional Market. FreshQuest allows you to quickly discover what is in season, who grew it, and where to find it.</p>
+			</div>
+			<div class="thirdcol last">
+				<nav class="foot">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/products">Produce</a></li>
+					<li><a href="/farmers">Farms</a></li>
+					<li><a href="/list">List</a>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Log out</a></li>
+				</ul>
+				</nav>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

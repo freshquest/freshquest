@@ -1,0 +1,452 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+	html {
+		font-size: 24px;
+	}
+	body {
+		font-family: 'Raleway', Arial, sans-serif;
+		font-weight: 300;
+		padding: 5em 0 0 0;
+		line-height: 150%;
+		color: #333;
+	}
+	.template {
+		display: none;
+	}
+	.right {
+		text-align: right;
+	}
+	#notice {
+		position: fixed;
+		width: 100%;
+		background: #0c6f2d;
+		padding: .75em 0;
+		color: #fff;
+		left: 0;
+		text-align: center;
+		font-weight: 500;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+		font-size: inherit;
+		-webkit-transition: color .5s, background .5s;
+		-moz-transition: color .5s, background .5s;
+		-ms-transition: color .5s, background .5s;
+		-o-transition: color .5s, background .5s;
+		transition: color .5s, background .5s;
+	}
+	header.main {
+		padding: .75em 0;
+		-webkit-box-shadow:  0px 0px 10px 1px rgba(0, 0, 0, .2);
+		box-shadow:  0px 0px 10px 1px rgba(0, 0, 0, .2);
+		background: #33cc66;
+		position: fixed;
+		left: 0;
+		width: 100%;
+		top: 0;
+		color: #fff;
+		z-index: 10;
+		line-height: 1em;
+	}
+	header.main a {
+		text-decoration: none;
+		color: inherit;
+	}
+	header.main a:hover {
+		color: #0c6f2d;
+	}
+	header.main img {
+		max-height: 1em;
+		margin-bottom: -.1em;
+	}
+	header.main h1 {
+		font-weight: bold;
+		font-size: 2em;
+		line-height: 1em;
+		margin: 0;
+		text-transform: uppercase;
+	}
+	footer.main {
+		background: #333;
+		color: #fff;
+		padding: 2em 0;
+		margin-top: 2em;
+	}
+	footer h2 {
+		color: #33cc66;
+		padding-bottom: .5em;
+	}
+	footer nav {
+		font-size: .8em;
+	}
+	footer ul {
+		list-style: none;
+		margin: 0;
+	}
+	footer a:hover {
+		color: #33cc66;
+	}
+	.copyright {
+		margin-top: 1em;
+		font-size: .8em;
+	}
+	nav.main {
+		text-align: right;
+	}
+	nav.main li {
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+	}
+	nav.main li a, nav.mobile li a {
+		text-decoration: none;
+		font-size: 1em;
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+		line-height: 2em;
+		padding: 0 10px;
+		text-transform: uppercase;
+	}
+	nav.mobile {
+		display: none;
+	}
+	h2 {
+		font-size: 1.5em;
+		line-height: 1em;
+		text-transform: uppercase;
+	}
+	.center {
+		text-align: center;
+	}
+	@font-face
+	{
+		font-family: 'Entypo';
+		src: url("../font/entypo.eot");
+		src: local("☺"),
+			url("../font/entypo.woff") format("woff"),
+			url("../font/entypo.otf") format("opentype"),
+			url("../font/entypo.svg") format("svg");
+	}
+	
+	/* Farmer Page */
+	#farm h2 {
+		padding-bottom: .5em;
+		color: #33cc66;
+	}
+	#farm .row {
+		/*padding-bottom: 1.5em;*/
+	}
+	#farm .row a {
+		padding-bottom: .5em;
+	}
+	#farm .row.nopad, #farm .row.lineBottom {
+		padding-bottom: 0;
+	}
+	.title {
+		line-height: 1.5em;
+	}
+	.title h1 {
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+		font-size: 1.5em;
+		line-height: 1em;
+		text-transform: uppercase;
+		margin-right: .1em;
+	}
+	.title h3 {
+		font-size: 1.3em;
+		font-weight: 300;
+	}
+	.favorite {
+		font-family: 'Entypo';
+		font-size: 2em;
+		font-weight: 300;
+		color: #ccc;
+	}
+	.favorite.on {
+		color: #ff0c7e;
+	}
+	.rank {
+		color: #ccc;
+		font-size: 2em;
+		font-family: 'Entypo';
+		border-left: 1px solid #000;
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+		padding-left: .2em;
+		margin-left: .1em;
+	}
+	.rank .on {
+		color: #ffcc00;
+	}
+	.map {
+		height: 350px;
+	}
+	.addtolist {
+		font-family: 'Entypo';
+		font-size: 3em;
+		-webkit-transition: color .5s;
+		-moz-transition: color .5s;
+		-ms-transition: color .5s;
+		-o-transition: color .5s;
+		transition: color .5s;
+	}
+	.addtolist:hover {
+		color: #33cc66;
+	}
+	.row.product {
+		line-height: 2em;
+		border-bottom: 1px solid #999999;
+		padding-bottom: 0;
+	}
+	#farm .row.product {
+		padding-top: .5em;
+	}
+	a.row.product {
+		display: block;
+	}
+	#products .row.product {
+		padding-top: .75em;
+	}
+	.product img {
+		height: 2em;
+	}
+	.product .name {
+		font-size: 1.5em;
+	}
+	.shed_location {
+		text-align: right;
+	}
+	#mobile_menu {
+		font-size: 2em;
+		font-family: 'Entypo';
+		display: none;
+		line-height: 1em;
+	}
+	.home {
+		background: url("../img/peppers.jpg") no-repeat center;
+		margin-top: -2em;
+	}
+	#home_tag {
+		background: rgba(0,0,0,.6);
+		color: #fff;
+		padding: 1em;
+		text-transform: uppercase;
+		margin: 6em 0 2em 0;
+		line-height: 2em;
+		font-size: 1.5em;
+	}
+	.get_started {
+		background: #111;
+		color: #fff;
+		padding: 1.5em 0;
+		font-weight: 500;
+		font-size: 1.25em;
+		line-height: 1.5em;
+	}
+	.get_started a {
+		background: #33cc66;
+		display: block;
+		padding: .65em;
+		font-size: 1.15em;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+	.get_started a:hover {
+		background: #0c6f2d;
+	}
+	.actions .action {
+		text-align: center;
+		padding: 1.5em 0 0 0;
+	}
+	.actions h2 {
+		font-size: 1.25em;
+		color: #33cc66;
+		margin-top: 1em;
+		line-height: 1.25em;
+	}
+	li.product_farm {
+		list-style: none;
+		border-bottom: 1px solid #999;
+		padding-top: .5em;
+	}
+	#farms li.product_farm {
+		padding-top: 0;
+	}
+	.product_farm .rank {
+		border-left: 0;
+	}
+	input[type="reset"]{
+		background: #666;
+		color: #fff;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		font-size: 1em;
+		font-weight: 500;
+		
+		border: 0px;
+		width: 100%;
+		padding: .5em;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	#shopping_list {
+		margin-top: 1em;
+	}
+	#shopping_list .shed .title {
+		padding-bottom: .5em;
+	}
+	#shopping_list h3 {
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+		color: #33cc66;
+		font-weight: bold;
+	}
+	#shopping_list .farmer {
+		padding-bottom: .5em;
+	}
+	#shopping_list .farmer .line {
+		border-top: 1px solid #999;
+		padding-top: .5em;
+	}
+	#shopping_list li {
+		list-style: none;
+	}
+	input[type="checkbox"]{
+		-ms-transform: scale(1.5);
+		-moz-transform: scale(1.5);
+		-webkit-transform: scale(1.5);
+		-o-transform: scale(1.5);
+		margin: 0 1em 0 0;
+		position: relative;
+		top: -.5em
+	}
+	.delshopitem {
+		font-family: 'Entypo';
+		font-size: 2em;
+		color: #999;
+	}
+	.lineBottom {
+		padding-bottom: 1em;
+		border-bottom: 1px solid #999;
+	}
+	a.block {
+		display: block;
+	}
+	li.product_farm a.block {
+		padding: 1em 0;
+	}
+	#shedmap {
+		height: 300px;
+		overflow: hidden;
+		border: 1px solid #ccc;
+		margin-top: 1em;
+	}
+	#shedmap img {
+		width: 100%;
+	}
+	.row.header {
+		height: 300px;
+		overflow: hidden;
+		margin-bottom: 1em;
+	}
+	.row.header img {
+		margin-top: -300px;
+		width: 100%;
+	}
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+	.title h1 {
+		display: block;
+	}
+	#farm .actions {
+		font-size: 1.5em;
+		line-height: 1em;
+		margin-top: .5em;
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+	}
+	#mobile_menu {
+		display: block;
+		float: right;
+		font-size: 2em;
+		line-height: 1em;
+	}
+	nav.main {
+		display: none;
+	}
+	nav.mobile {
+		display: none;
+		position: fixed;
+		top: 3.55em;
+		left: 0;
+		width: 100%;
+		background-color: #cffedf;
+		z-index: 9;
+	}
+	nav.mobile li {
+		width: 100%;
+		display: block;
+		text-align: left;
+	}
+	nav.mobile li a {
+		display: block;
+		color: #333;
+		text-align: left;
+		padding: .5em 1em;
+		border-bottom: 1px solid #b2f9ca;
+	}
+	.shed_location {
+		text-align: left;
+	}
+	.map {
+		margin-bottom: 1.5em;
+	}
+	footer nav {
+		display: none;
+	}
+	
+	.row.product .onecol {
+		width: 10%;
+		float: left;
+	}
+	.row.product .elevencol {
+		width: 90%;
+	}
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
