@@ -48,15 +48,14 @@ module.exports = function setupRest(app, db) {
                     var result = [];
                     if (req.params.id) {
                         if (docs.length > 0) {
-                            result = JSON.stringify(docs[0]);
                             res.header('Content-Type', 'application/json');
-                            res.send(result);
+                            res.send(docs[0]);
                         } else {
                             res.send(404);
                         }
                     } else {
                         docs.forEach(function (doc) {
-                            result.push(JSON.stringify(doc));
+                            result.push(doc);
                         });
                         res.header('Content-Type', 'application/json');
                         res.send(result);
@@ -85,7 +84,7 @@ module.exports = function setupRest(app, db) {
 
                 res.header('Location', '/' + req.params.db + '/' + req.params.collection + '/' + docs[0]._id.toHexString());
                 res.header('Content-Type', 'application/json');
-                res.send(JSON.stringify(docs), 201);
+                res.send(docs, 201);
             });
         });
     });
@@ -109,7 +108,7 @@ module.exports = function setupRest(app, db) {
                 if(err) return sendError(err.message,500,res);
 
                 res.header('Content-Type', 'application/json');
-                res.send(JSON.stringify(docs));
+                res.send(docs);
             });
         });
     });
@@ -129,11 +128,10 @@ module.exports = function setupRest(app, db) {
 
             collection.remove(spec, function (err, docs) {
 
-                if(!docs) return res.send("Unable to update document",400,res);
                 if(err) return sendError(err.message,500,res);
 
                 res.header('Content-Type', 'application/json');
-                res.send(JSON.stringify(docs));
+                res.send(spec);
             });
         });
     });
