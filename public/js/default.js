@@ -32,8 +32,8 @@ $(document).ready(function(){
 	});
 	
 	if($('.product_farms').length > 0){
-		var url = '/json/product_detail.json';
-		var data = {};
+		url = '/api/product_detail';
+		data = {};
 		$.ajax({
 			dataType: "json",
 			type: 'GET',
@@ -43,6 +43,7 @@ $(document).ready(function(){
 				console.log('error');
 			},
 			success: function(req){
+                console.log('got product_detail',req);
 				var prod = req.productDetail;
 				var prodDiv = $('#template_product').html();
 				var regex = new RegExp("{name}", 'g');
@@ -60,7 +61,7 @@ $(document).ready(function(){
 				$.each(prod.farms, function(index, el){
 					renderFarmList(el, $('.product_farms'));
 				});
-				var prodHtml = $('.product_farms').html()
+				var prodHtml = $('.product_farms').html();
 				regex = new RegExp("{productName}", 'g');
 				prodHtml = prodHtml.replace(regex, prod.name);
 				
@@ -70,15 +71,16 @@ $(document).ready(function(){
 		});
 	}
 	if($('#farm').length > 0){
-		var url = '/json/farmer.json';
-		var list = false;
-		var hash;
-		if(window.location.hash != ''){
+		var list, hash;
+		if(window.location.hash !== ''){
 			hash = window.location.hash.replace('#', '');
-			url = '/json/farmer_list.json';
+			url = '/api/farm/' + hash;
 			list = true;
-		}
-		var data = {};
+		}else{
+			url = '/api/farm';
+            list = false;
+        }
+		data = {};
 		$.ajax({
 			dataType: "json",
 			type: 'GET',
@@ -88,15 +90,11 @@ $(document).ready(function(){
 				console.log('error');
 			},
 			success: function(req){
+                console.log('got farm',hash,req);
 				var farmer;
 				if(list){
-					$.each(req, function(index, farm){
-						if(farm.slug == hash){
-							farmer = farm;
-						}
-					})
-				}
-				else {
+                    farmer = req;
+				} else {
 					farmer = req.farmer;
 				}
 				
@@ -107,8 +105,8 @@ $(document).ready(function(){
 		});
 	}
 	if($('#farms').length > 0){
-		var url = '/json/farmer_list.json';
-		var data = {};
+		url = '/api/farm';
+		data = {};
 		$.ajax({
 			dataType: "json",
 			type: 'GET',
@@ -118,6 +116,7 @@ $(document).ready(function(){
 				console.log('error');
 			},
 			success: function(req){
+                console.log('got farms',req);
 				var farmers = req;
 				
 				$.each(farmers, function(index, farmer){
@@ -127,8 +126,8 @@ $(document).ready(function(){
 		});
 	}
 	if($('#shopping_list').length > 0){
-		var url = '/json/userProfile.json';
-		var data = {};
+		url = '/api/user';
+		data = {};
 		$.ajax({
 			dataType: "json",
 			type: 'GET',
@@ -137,7 +136,9 @@ $(document).ready(function(){
 			error: function(e){
 				console.log('error');
 			},
-			success: function(req){
+			success: function(r){
+                console.log('got user profiles',r);
+                var req = r[0];
 				var favorites = new Array();
 				$.each(req.farms, function(index, el){
 					if(el.isFavorite === true){
@@ -340,12 +341,14 @@ function renderFarm(farmer, obj){
 		regex = new RegExp("{name}", 'g');
 		prodDiv = prodDiv.replace(regex, index);
 		regex = new RegExp("{img}", 'g');
-		if(typeof product_images[index] == 'string'){
-			prodDiv = prodDiv.replace(regex, product_images[index]);
-		}
-		else {
-			prodDiv = prodDiv.replace(regex, product_images['blank']);
-		}
+        if(product_images){
+            if(typeof product_images[index] == 'string'){
+                prodDiv = prodDiv.replace(regex, product_images[index]);
+            }
+            else {
+                prodDiv = prodDiv.replace(regex, product_images['blank']);
+            }
+        }
 		if(typeof el.price != 'undefined' && typeof el.units != 'undefined'){
 			var priceUnits = '$'+el.price+'/'+el.units;
 			regex = new RegExp("{priceUnits}", 'g');
