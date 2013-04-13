@@ -20,9 +20,10 @@ app.listen(port, function() {
 
 var mongo = require('mongodb');
 
-var mongoUri = process.env.MONGOLAB_URI || 
-    process.env.MONGOHQ_URL || 
-    'mongodb://heroku:mintyfresh@alex.mongohq.com:10063/app14931700';
+var mongoUri = 'mongodb://heroku:mintyfresh@alex.mongohq.com:10063/app14931700';
+    //process.env.MONGOLAB_URI || 
+    //process.env.MONGOHQ_URL || 
+    
 
 //TODO: autoreconnect
 
