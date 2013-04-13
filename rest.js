@@ -12,23 +12,26 @@ module.exports = function setupRest(app, db) {
      * Query
      */
     app.get('/api/:collection/:id?', function (req, res) {
-        var query = req.query.query ? JSON.parse(req.query.query) : {};
+        
+        var query = {};
  
         // Providing an id overwrites giving a query in the URL
-        if (req.params.id) {
-            query = {
-                '_id': new BSON.ObjectID(req.params.id)
-            };
-        }
+        if (req.params.id) query._id = new BSON.ObjectID(req.params.id);
+
         var options = req.params.options || {};
  
         var test = ['limit', 'sort', 'fields', 'skip', 'hint', 'explain', 'snapshot', 'timeout'];
  
-        for (var o in req.query) {
-            if (test.indexOf(o) >= 0) {
-                options[o] = req.query[o];
+        for (var k in req.query) {
+            if (test.indexOf(k) > -1) {
+                options[k] = req.query[k];
+            }else{
+                query[k] = req.query[k];
             }
         }
+
+        console.log('query',query);
+        console.log('options',options);
  
         db.collection(req.params.collection, function (err, collection) {
 
