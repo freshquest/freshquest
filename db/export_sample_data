@@ -1,0 +1,8 @@
+#!/bin/bash
+
+collections=(farm user product_detail)
+
+for coll in ${collections[*]}
+do
+    mongoexport --db freshquest --collection $coll > $coll.mongoexport
+done

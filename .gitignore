@@ -1,1 +1,7 @@
-node_modules
+*~
+*.lock
+.DS_Store
+*.swp
+*.out
+node_modules/
+npm-debug.log

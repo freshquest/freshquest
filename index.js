@@ -3,6 +3,8 @@
 
 //TODO: later, add auth, etc.
 
+var development = !process.env.NODE_ENV;
+
 var express = require("express"),
     rest = require('./rest');
 
@@ -20,7 +22,10 @@ app.listen(port, function() {
 
 var mongo = require('mongodb');
 
-var mongoUri = 'mongodb://heroku:mintyfresh@alex.mongohq.com:10063/app14931700';
+if (!process.env.NODE_ENV)
+	var mongoUri = 'mongodb://localhost/freshquest'
+else
+	var mongoUri = 'mongodb://heroku:mintyfresh@alex.mongohq.com:10063/app14931700';
     //process.env.MONGOLAB_URI || 
     //process.env.MONGOHQ_URL || 
     
