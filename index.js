@@ -6,7 +6,8 @@
 var development = !process.env.NODE_ENV;
 
 var express = require("express"),
-    rest = require('./rest');
+    rest = require('./rest'),
+    api = require('./api');
 
 
 var app = express();
@@ -37,5 +38,6 @@ var MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect(mongoUri, function(err, db) {
     console.log('connected to mongodb');
+    api(app,db);
     rest(app,db);
 });
