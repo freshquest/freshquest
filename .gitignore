@@ -3,5 +3,8 @@
 .DS_Store
 *.swp
 *.out
+
 node_modules/
 npm-debug.log
+
+sublime-project.sublime-workspace

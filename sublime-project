@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": ["sublime-project.*", "*~"],
+			"folder_exclude_patterns": ["node_modules"]
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "Run",
+		    "cmd": ["node", "./index.js"],
+		    "working_dir": "${project_path}",
+		    "selector": "source.js",
+		    "path": "/opt/local/bin:/usr/local/bin"
+		}
+	]
+}
