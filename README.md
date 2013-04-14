@@ -52,3 +52,14 @@ The collections we have right now are:
 * `/api/user`
 
 I just stuck the JSON files straight into the database, without really worrying about whether this would be the schema we'd like to stick with - this is a topic that requires a separate discussion.
+
+Getting set up for deployment
+=============================
+
+`heroku git:remote -a freshquest`
+
+Deployment
+==========
+
+1. `git push heroku master`
+2. Open http://freshquest.herokuapp.com
