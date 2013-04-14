@@ -23,16 +23,19 @@ app.listen(port, function() {
 var mongo = require('mongodb');
 
 if (!process.env.NODE_ENV)
-	var mongoUri = 'mongodb://localhost/freshquest'
+	var mongoUri = 'mongodb://localhost/freshquest?w=1'
 else
 	var mongoUri = 'mongodb://heroku:mintyfresh@alex.mongohq.com:10063/app14931700';
     //process.env.MONGOLAB_URI || 
     //process.env.MONGOHQ_URL || 
     
-
 //TODO: autoreconnect
 
-mongo.Db.connect(mongoUri, function (err, db) {
+
+
+var MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect(mongoUri, function(err, db) {
     console.log('connected to mongodb');
     rest(app,db);
 });
