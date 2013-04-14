@@ -1,7 +1,8 @@
 #!/bin/bash
 
 collections=(user farm market_day_booth product_detail)
-dbopts="--db freshquest"
+instanceopts="--host alex.mongohq.com:10063 --username heroku --password mintyfresh"
+dbopts="--db app14931700"
 
 for coll in ${collections[*]}
 do
