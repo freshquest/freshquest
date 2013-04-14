@@ -1,0 +1,3 @@
+{ "_id" : { "$oid" : "516afb1b214a12afacc069d5" }, "farmerId" : { "$oid" : "5169e40b9f9477588676e816" }, "sellSheet" : { "Apples, Gala" : { "price" : 2, "units" : "half peck" }, "Acorn Squash" : { "price" : 1.5, "units" : "pc" }, "Blueberries" : { "price" : 4, "units" : "pt" } }, "shed" : "1", "stall" : "102" }
+{ "_id" : { "$oid" : "516b03c92d5a140a6cf434d2" }, "farmerId" : { "$oid" : "5169e40b9f9477588676e817" }, "shed" : "1", "stall" : "105", "sellSheet" : { "Mushrooms" : { "price" : 5, "units" : "3 pounds" } } }
+{ "_id" : { "$oid" : "516b045e2d5a140a6cf434d4" }, "farmerId" : { "$oid" : "516b04432d5a140a6cf434d3" }, "shed" : "2", "stall" : "101", "sellSheet" : { "Radishes" : { "price" : 2, "units" : "bunch" } } }

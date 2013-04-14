@@ -1,6 +1,6 @@
 #!/bin/bash
 
-collections=(farm user product_detail)
+collections=(user farm market_day_booth product_detail)
 
 for coll in ${collections[*]}
 do
