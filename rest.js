@@ -7,11 +7,17 @@ module.exports = function setupRest(app, db) {
         res.header('Content-Type', 'application/json');
         res.send({error : message},status); 
     }
+
+    function makeError(status,message) {
+        var error = new Error(message);
+        error.status = status;
+        return error;
+    }
  
     /**
      * Query
      */
-    app.get('/api/:collection/:id?', function (req, res) {
+    app.get('/api/:collection/:id?', function (req, res, next) {
         
         var query = {};
  
@@ -32,39 +38,28 @@ module.exports = function setupRest(app, db) {
 
         console.log('query',query);
         console.log('options',options);
- 
-        db.collection(req.params.collection, function (err, collection) {
 
-            if(!collection) return res.send("Unable to find collection",400,res);
-            if(err) return sendError(err.message,500,res);
+        db.collection(req.params.collection).find(query).toArray(function (err, docs) {
 
-            collection.find(query, options, function (err, cursor) {
+            if(err) return next(err);
+            if(!docs) return next(makeError(500,'Unable to convert database cursor to array'));
 
-                if(!cursor) return res.send("Unable to execute query",400,res);
-                if(err) return sendError(err.message,500,res);
- 
-                cursor.toArray(function (err, docs) {
-
-                    if(!docs) return sendError('Unable to convert database cursor to array',500,res);
-                    if(err) return sendError(err.message,500,res);
-
-                    var result = [];
-                    if (req.params.id) {
-                        if (docs.length > 0) {
-                            res.header('Content-Type', 'application/json');
-                            res.send(docs[0]);
-                        } else {
-                            res.send(404);
-                        }
-                    } else {
-                        docs.forEach(function (doc) {
-                            result.push(doc);
-                        });
-                        res.header('Content-Type', 'application/json');
-                        res.send(result);
-                    }
+            var result = [];
+            if (req.params.id) {
+                if (docs.length > 0) {
+                    res.header('Content-Type', 'application/json');
+                    res.send(docs[0]);
+                } else {
+                    next(makeError(404,'Object not found'));
+                }
+            } else {
+                console.log("success");
+                docs.forEach(function (doc) {
+                    result.push(doc);
                 });
-            });
+                res.header('Content-Type', 'application/json');
+                res.send(result);
+            }
         });
     });
  
