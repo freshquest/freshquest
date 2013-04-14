@@ -3,16 +3,17 @@ Getting started
 
 Follow these steps to set up a local development environment:
 
-1. Install Mongo.
+1. [Install Mongo][] any way you like and get it running.
 2. `cd db; ./import_sample_data` (May overwrite content in `freshquest`
     database.)
-3. [Build and install Node.js][node_installation] or use one of the pre-built packages.
+3. [Install Node.js][install node].
 4. Clone this repository.
 5. From the repository folder, run `npm install` to install the modules you need.
 6. Run `node index.js`.
 7. Open http://localhost:5000/ and you should see the home page.http://localhost:5000/farmers/ should give you a list of several farms.
 
-[node_installation]: https://github.com/joyent/node/wiki/Installation
+[install node]: http://nodejs.org/
+[install mongo]: http://docs.mongodb.org/manual/installation/
 
 *Note:* On Windows, `import_sample_data` should run in Cygwin, though we should make a PowerShell version so Cygwin isn't required.
 
@@ -26,12 +27,15 @@ Here's a quick description of the REST API:
 So, for example:
 
 `curl freshquest.herokuapp.com/api/farm`
+
 Gets all the farms
 
 `curl freshquest.herokuapp.com/api/farm/5169e40b9f9477588676e81d`
+
 Gets Lan's Flower Farm
 
 `curl freshquest.herokuapp.com/api/farm?slug=huck_farm`
+
 Gets all the farms with slug property equal to "huck_farm" (there are currently 3 of them).
 
 `POST /api/:collection`
