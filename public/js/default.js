@@ -16,7 +16,8 @@ $(document).ready(function(){
 			product_images = new Object();
 			$.each(req, function(index,el){
 				product_images[index] = el;
-				if($('#products').length > 0){
+				var products = $('#products');
+				if(products && products.length > 0){
 					var prodDiv = $('#template_product').html();
 					regex = new RegExp("{img}", 'g');
 					prodDiv = prodDiv.replace(regex, el);
@@ -25,7 +26,8 @@ $(document).ready(function(){
 					$('#products').append(prodDiv);
 				}
 			});
-			if($('#products').length > 0){
+			var products = $('#products');
+			if(products && products.length > 0){
 				addItemLinks();
 			}
 		}
@@ -285,10 +287,10 @@ function renderFarmList(farmer, obj){
 	
 	if(typeof farmer.marketDayBooth == 'object'){
 		regex = new RegExp("{shed}", 'g');
-		farmDiv = farmDiv.replace(regex, farmer.marketDayBooth.shed);
+		farmDiv = farmDiv.replace(regex, farmer.marketDayBooth ? farmer.marketDayBooth.shed : '{shed}');
 		
 		regex = new RegExp("{stall}", 'g');
-		farmDiv = farmDiv.replace(regex, farmer.marketDayBooth.stall);
+		farmDiv = farmDiv.replace(regex, farmer.marketDayBooth ? farmer.marketDayBooth.stall : '{stall}');
 	}
 	
 	obj.append(farmDiv);
@@ -315,10 +317,10 @@ function renderFarm(farmer, obj){
 	farmDiv = farmDiv.replace(regex, rankSpan);
 	
 	regex = new RegExp("{marketDayBooth.shed}", 'g');
-	farmDiv = farmDiv.replace(regex, farmer.marketDayBooth.shed);
+	farmDiv = farmDiv.replace(regex, farmer.marketDayBooth ? farmer.marketDayBooth.shed : '{shed}');
 	
 	regex = new RegExp("{marketDayBooth.stall}", 'g');
-	farmDiv = farmDiv.replace(regex, farmer.marketDayBooth.stall);
+	farmDiv = farmDiv.replace(regex, farmer.marketDayBooth ? farmer.marketDayBooth.stall : '{stall}');
 	
 	var imgCount = 0;
 	var temp = $('<div/>');
@@ -336,30 +338,32 @@ function renderFarm(farmer, obj){
 	farmDiv = farmDiv.replace(regex, temp.html());
 	
 	var temp = $('<div/>');
-	$.each(farmer.marketDayBooth.sellSheet, function(index, el){
-		var prodDiv = $('#template_product').html();
-		regex = new RegExp("{name}", 'g');
-		prodDiv = prodDiv.replace(regex, index);
-		regex = new RegExp("{img}", 'g');
-        if(product_images){
-            if(typeof product_images[index] == 'string'){
-                prodDiv = prodDiv.replace(regex, product_images[index]);
-            }
-            else {
-                prodDiv = prodDiv.replace(regex, product_images['blank']);
-            }
-        }
-		if(typeof el.price != 'undefined' && typeof el.units != 'undefined'){
-			var priceUnits = '$'+el.price+'/'+el.units;
-			regex = new RegExp("{priceUnits}", 'g');
-			prodDiv = prodDiv.replace(regex, priceUnits);
-		}
-		else {
-			regex = new RegExp("{priceUnits}", 'g');
-			prodDiv = prodDiv.replace(regex, '');
-		}
-		temp.append(prodDiv);
-	});
+	if (farmer.marketDayBooth) {
+		$.each(farmer.marketDayBooth.sellSheet, function(index, el){
+			var prodDiv = $('#template_product').html();
+			regex = new RegExp("{name}", 'g');
+			prodDiv = prodDiv.replace(regex, index);
+			regex = new RegExp("{img}", 'g');
+	        if(product_images){
+	            if(typeof product_images[index] == 'string'){
+	                prodDiv = prodDiv.replace(regex, product_images[index]);
+	            }
+	            else {
+	                prodDiv = prodDiv.replace(regex, product_images['blank']);
+	            }
+	        }
+			if(typeof el.price != 'undefined' && typeof el.units != 'undefined'){
+				var priceUnits = '$'+el.price+'/'+el.units;
+				regex = new RegExp("{priceUnits}", 'g');
+				prodDiv = prodDiv.replace(regex, priceUnits);
+			}
+			else {
+				regex = new RegExp("{priceUnits}", 'g');
+				prodDiv = prodDiv.replace(regex, '');
+			}
+			temp.append(prodDiv);
+		});
+	}
 	regex = new RegExp("{products}", 'g');
 	farmDiv = farmDiv.replace(regex, temp.html());
 	
