@@ -21,6 +21,14 @@ should give you a list of several farms.
 
 *Note:* On Windows, `import_sample_data` should run in Cygwin, though we should make a PowerShell version so Cygwin isn't required.
 
+Learning Angular.js
+===================
+
+To learn Angular.js you might want to work with the simpler example Jake set up. It's now
+in the [angular_example branch][angular_example].
+
+[angular_example]: https://bitbucket.org/freshquest/freshquest-node/commits/all/tip/angular_example
+
 API Overview
 ============
 
