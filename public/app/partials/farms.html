@@ -1,0 +1,8 @@
+<h1>Farms</h1>
+<!-- We list all the farms here -->
+<!-- Note that, even though farmList is a promise, which gets resolved asynchronously, 
+        we can use it in the template directly, because AngularJS is smart. -->
+<div ng-repeat="farm in farmList">
+    <h2>{{farm.name}}</h1>
+    <p><strong>Distances</strong> : <span>{{farm.distance}}</span>
+</div>

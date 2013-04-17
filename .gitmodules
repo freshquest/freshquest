@@ -1,0 +1,3 @@
+[submodule "public/lib/restangular"]
+	path = public/lib/restangular
+	url = git://github.com/mgonto/restangular.git

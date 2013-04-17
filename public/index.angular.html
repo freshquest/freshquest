@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="freshquest">
+    <head>
+        <title>FreshQuest AngularJS Demo</title>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-resource.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+        <script src="lib/restangular/dist/restangular.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/controllers.js"></script>
+        <script src="app/directives.js"></script>
+        <script src="app/services.js"></script>
+        <style type="text/css">
+            #navlist li
+            {
+                display: inline;
+                list-style-type: none;
+                padding-right: 20px;
+            }
+         </style>
+    </head>
+    <body>
+        <!-- This is our navbar. We navigate through our app using regular anchor tags and hyperlinks. Very easy! -->
+        <ul id="navlist">
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/farms">Farms</a></li>
+            <li><a href="#/produce">Produce</a></li>
+            <li><a href="#/shopping-list">Shopping List</a></li>
+        </ul>
+
+        <ng-view></ng-view>
+    </body>
+</html>
