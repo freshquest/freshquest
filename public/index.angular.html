@@ -2,33 +2,63 @@
 <html ng-app="freshquest">
     <head>
         <title>FreshQuest AngularJS Demo</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+        <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,700"/>
+        <link type="text/css" rel="stylesheet" href="/css/1140.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/styles.css"/>
+
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-resource.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+
         <script src="lib/restangular/dist/restangular.js"></script>
         <script src="app/app.js"></script>
         <script src="app/controllers.js"></script>
         <script src="app/directives.js"></script>
         <script src="app/services.js"></script>
-        <style type="text/css">
-            #navlist li
-            {
-                display: inline;
-                list-style-type: none;
-                padding-right: 20px;
-            }
-         </style>
+
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" />
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
     </head>
     <body>
         <!-- This is our navbar. We navigate through our app using regular anchor tags and hyperlinks. Very easy! -->
-        <ul id="navlist">
-            <li><a href="#/home">Home</a></li>
-            <li><a href="#/farms">Farms</a></li>
-            <li><a href="#/produce">Produce</a></li>
-            <li><a href="#/shopping-list">Shopping List</a></li>
-        </ul>
+        <header class="container main">
+            <div class="row">
+                <div class="threecol">
+                    <a href="#" id="mobile_menu">&#9776;</a>
+                    <h1><a href="/"><img src="/img/freshquest_logo.png"/></a></h1>
+                </div>
+                <div class="ninecol last">
+                    <nav class="main" ng-include="'app/partials/nav_primary.html'">
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <nav class="mobile" ng-include="'app/partials/nav_primary.html'">
+        </nav>
 
         <ng-view></ng-view>
+
+        <footer id="footer" class="container main">
+            <div class="row">
+                <div class="ninecol">
+                    <h2>FreshQuest</h2>
+                    <p>FreshQuest is all about food! More appropriately it's about people who are on a quest to find fresh, locally grown produce at the CNY Regional Market. FreshQuest allows you to quickly discover what is in season, who grew it, and where to find it.</p>
+                    <p class="copyright">Copyright &copy; 2013 FreshQuest. All rights reserved.</p>
+                </div>
+                <div class="thirdcol last">
+                    <nav class="foot" ng-include="'app/partials/nav_footer.html'">
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
     </body>
 </html>
