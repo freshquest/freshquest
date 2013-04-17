@@ -5,6 +5,9 @@ Follow these steps to set up a local development environment:
 
 0. `git submodule init && git submodule update` if you haven't already.
 1. [Install Mongo][] any way you like and get it running.
+1. Confirm that Mongo is running. The easiest way is to run 'mongo' in a terminal.
+   In case of success, you'll see a Mongo prompt `>`. In case of failure you'll
+   get a connection error instead.
 2. `cd db; ./import_sample_data` (May overwrite content in `freshquest`
     database.)
 3. [Install Node.js][install node].
@@ -86,3 +89,5 @@ API Documentation
 
  -  [Express](http://expressjs.com/api.html)
  -  [Node.js Native Mongo driver](http://mongodb.github.io/node-mongodb-native/)
+ -  [Angular.js](http://docs.angularjs.org/api/)
+ -  [Restangular](https://github.com/mgonto/restangular)

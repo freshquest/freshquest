@@ -9,6 +9,7 @@ app.config(function($routeProvider, RestangularProvider) {
     $routeProvider.
         when('/home', {templateUrl: 'app/partials/home.html'}).
         when('/farms', {templateUrl: 'app/partials/farms.html',controller : FarmsController}).
+        when('/farm/:slug', {templateUrl: 'app/partials/farmDetail.html',controller : FarmDetailController}).
         when('/produce', {templateUrl: 'app/partials/produce.html',controller : ProduceController}).
         when('/shopping-list', {templateUrl: 'app/partials/shopping-list.html',controller : ShoppingListController}).
         when('/about', {templateUrl: 'app/partials/about.html'}).

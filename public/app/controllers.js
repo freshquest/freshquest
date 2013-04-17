@@ -10,10 +10,19 @@ function FarmsController($scope,farms){
                                              //note that farms is a promise. Angular's templates will deal with this elegantly. 
 
     //This is just to verify that Restangular is working correctly
-    $scope.farmList.then(function(resolvedFarmsList){
-        console.log('resolvedFarmsList',resolvedFarmsList);
-    });
+    // $scope.farmList.then(function(resolvedFarmsList){
+    //     console.log('resolvedFarmsList',resolvedFarmsList);
+    // });
 }
+
+function FarmDetailController($scope,$routeParams,Restangular){
+    $scope.farm = Restangular.one('farm~', $routeParams.slug).get();
+
+    // $scope.farm.then(function(resolvedFarm){
+    //     console.log('resolvedFarm',resolvedFarm);
+    // });
+}
+
 
 function ProduceController($scope){
     //TODO
