@@ -25,3 +25,31 @@ app.config(function($routeProvider, RestangularProvider) {
 app.run(function(){
     //there isn't actually anything we need to do currently
 });
+
+// Expects a number 0 to 5
+app.filter('stars', function() {
+    return function(rating) {
+        var result = '';
+        rank = Math.round(rating);
+        for(i=0; i<5; i++) {
+            if (i < rank)
+                result += '<span class="on">&#9733;</span>';
+            else
+                result += '<span>&#9733;</span>';
+        }
+        return result;
+    };
+});
+
+// Expects a marketDayBooth
+app.filter('shedAndStall', function() {
+    return function(marketDayBooth) {
+        if (!marketDayBooth) return '';
+        var components = [];
+        if (marketDayBooth.shed)
+            components.push('Shed ' + marketDayBooth.shed);
+        if (marketDayBooth.stall)
+            components.push('Stall ' + marketDayBooth.stall);
+        return components.join(', ');
+    };
+});

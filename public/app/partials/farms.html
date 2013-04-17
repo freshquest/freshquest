@@ -1,8 +1,36 @@
-<h1>Farms</h1>
-<!-- We list all the farms here -->
-<!-- Note that, even though farmList is a promise, which gets resolved asynchronously, 
-        we can use it in the template directly, because AngularJS is smart. -->
-<div ng-repeat="farm in farmList">
-    <h2>{{farm.name}}</h1>
-    <p><strong>Distances</strong> : <span>{{farm.distance}}</span>
+<div id="farms" class="container">
+
+	<div class="row lineBottom name">
+		<div class="twelvecol">
+			<h2>Farms</h2>
+		</div>
+	</div>
+
+	<div ng-repeat="farm in farmList">
+		<li class="row product_farm">
+			<a href="/farmers/detail.html#{{farm.slug}}" class="block">
+				<div class="twocol center">
+					<img ng-src="{{farm.iconImage}}"/>
+				</div>
+				<div class="tencol last">
+					<h3>{{farm.name}}</h3>
+					<div class="row">
+						<div class="fourcol">
+							{{farm.location}}
+						</div>
+						<div class="twocol">
+							{{farm.distance}} miles
+						</div>
+						<div class="threecol">
+							{{farm.marketDayBooth | shedAndStall }}
+						</div>
+						<div class="threecol last">
+							<span class="rank" ng-bind-html-unsafe='farm.aggregateRating | stars'></span>
+						</div>
+					</div>
+				</div>
+			</a>
+		</li>
+	</div>
+
 </div>
