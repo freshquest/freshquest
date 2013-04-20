@@ -28,10 +28,13 @@ Follow these steps to set up a local development environment:
 Learning Angular.js
 ===================
 
+First, watch some of these [great introductory videos][egghead].
+
 To learn Angular.js you might want to work with the simpler example Jake set up. It's now
 in the [angular_example branch][angular_example].
 
 [angular_example]: https://bitbucket.org/freshquest/freshquest-node/commits/all/tip/angular_example
+[egghead]: http://www.egghead.io/
 
 API Overview
 ============
