@@ -1,4 +1,12 @@
-<fqtitle>Produce</fqtitle>
+<fqtitle>Available Products</fqtitle>
 
-
-TODO
+<div id="products" ng-repeat="product in productList">
+	<a class="row product" href="#/produce/{{product.name}}">
+		<div class="onecol center">
+			<img ng-src="{{product.iconURL}}"/>
+		</div>
+		<div class="elevencol name last">
+			{{product.name}}
+		</div>
+	</a>
+</div>

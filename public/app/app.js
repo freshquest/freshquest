@@ -11,6 +11,7 @@ app.config(function($routeProvider, RestangularProvider) {
         when('/farms', {templateUrl: 'app/partials/farms.html',controller : FarmsController}).
         when('/farm/:slug', {templateUrl: 'app/partials/farmDetail.html',controller : FarmDetailController}).
         when('/produce', {templateUrl: 'app/partials/produce.html',controller : ProduceController}).
+        when('/produce/:item', {templateUrl: 'app/partials/produceDetail.html',controller : ProduceDetailController}).
         when('/shopping-list', {templateUrl: 'app/partials/shopping-list.html',controller : ShoppingListController}).
         when('/about', {templateUrl: 'app/partials/about.html'}).
         when('/login', {templateUrl: 'app/partials/login.html'}).

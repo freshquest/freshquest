@@ -23,10 +23,14 @@ function FarmDetailController($scope,$routeParams,farms){
     // });
 }
 
-
-function ProduceController($scope){
-    //TODO
+function ProduceController($scope, productList){
+    $scope.productList = productList;
 }
+
+function ProduceDetailController($scope, $routeParams){
+    $scope.item = $routeParams.item;
+}
+
 
 function ShoppingListController($scope){
     //TODO
