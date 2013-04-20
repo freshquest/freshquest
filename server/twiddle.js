@@ -108,4 +108,25 @@ module.exports = function (app, db) {
         });
     });
 
+    // GET /api/~product/Apples
+    app.get('/api/~product/:item', function (req, res, next) {
+        var item = req.params.item;
+        var query = { "sellSheet.item" : item } // FIXME filter on the current market day
+        find('market_day_booth', query, true, function(err, boothdocs) {
+            if (!boothdocs) boothdocs = {};
+            async.each(boothdocs, function(booth, callback) {
+                var query2 = { _id: booth.farmerId };
+                find('farm', query2, false, function(err, farmdoc) {
+                    booth.farm = farmdoc;
+                    callback(null);
+                });
+            }, function(err) {
+                res.json({
+                    item: item,
+                    booths: boothdocs
+                });
+            });
+        });
+    });
+
 }

@@ -12,7 +12,7 @@ mod.service('farms',function(Restangular) {
 	}
 });
 
-mod.service('productList', function() {
+mod.service('product', function(Restangular) {
 	var dict = {
 		"Acorn Squash" : "/img/product/acorn_squash.png",
 		"Apples" : "/img/product/apple.png",
@@ -37,15 +37,18 @@ mod.service('productList', function() {
 		"Zucchini" : "/img/product/zucchini.png",
 		"blank": "/img/product/blank.png"
 	};
-	var result = [];
+	var productList = [];
 	Object.keys(dict).forEach( function(key) {
-		result.push(
-		{
-			name: key,
-			iconURL: dict[key]
-		});
+		if (key != "blank") productList.push( { name: key, iconURL: dict[key] });
 	});
-	return result;
+	return {
+		one: function(item) { return Restangular.one('~product', item) },
+		productList: productList,
+		productImage: function(item) {
+			var result = dict[item];
+			return result ? result : dict["blank"];
+		}
+	}
 });
 
 mod.service('user',function(Restangular) {

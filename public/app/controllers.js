@@ -23,12 +23,27 @@ function FarmDetailController($scope,$routeParams,farms){
     // });
 }
 
-function ProduceController($scope, productList){
-    $scope.productList = productList;
+function ProduceController($scope, product){
+    $scope.productList = product.productList;
 }
 
-function ProduceDetailController($scope, $routeParams){
-    $scope.item = $routeParams.item;
+function ProduceDetailController($scope, $routeParams, product) {
+    var productName = $routeParams.item;
+    $scope.productIconImage = product.productImage(productName);
+
+    $scope.product = product.one(productName).get().then(function(result) {
+        result.booths.forEach(function(booth) {
+            booth.sellSheet = _.filter(booth.sellSheet, function(item) {
+                return productName == item.item;
+            });
+            booth.hasVarieties = false; // Eventually, we'll set this to true when they're selling a sub-variety
+        })
+        return result;
+    });
+
+    // $scope.product.then(function(resolved){
+    //     console.log('resolved',resolved);
+    // });
 }
 
 

@@ -1,5 +1,55 @@
 <div class="container">
 
-	<fqtitle>{{item}}</fqtitle>
+	<div class="row product">
+		<div class="onecol center">
+			<img ng-src="{{productIconImage}}"/>
+		</div>
+		<div class="elevencol name last">
+			<h2>{{product.item}}</h2>
+		</div>
+	</div>
+
+	<div ng-repeat="booth in product.booths" ng-switch on="booth.hasVarieties">
+		<li class="row product_farm">
+			<div class="twocol center">
+				<a href="#/farm/{slug}"><img ng-src="{{booth.farm.iconImage}}"/></a>
+			</div>
+			<div class="tencol last">
+				<h3><a href="#/farm/{slug}">{{booth.farm.name}}</a></h3>
+				<div class="row">
+					<div class="threecol">
+						{{booth | shedAndStall}}
+					</div>
+					<div class="twocol">
+						{{booth.farm.distance}} miles
+					</div>
+					<div class="threecol" ng-switch-when="true">
+					</div>
+					<div class="threecol" ng-switch-when="false">
+						${{booth.sellSheet[0].price}}/{{booth.sellSheet[0].units}}
+					</div>
+					<div class="threecol">
+						<span class="rank" ng-bind-html-unsafe='booth.farm.aggregateRating | stars'></span>
+					</div>
+					<div class="onecol center last">
+						<a href="#{productName}" class="addtolist">&#57347;</a>
+					</div>
+				</div>
+				<div ng-switch-when="true">
+					<div class="row" ng-repeat="entry in booth.sellSheet">
+						<div class="fivecol">
+							{{entry.item}}
+						</div>
+						<div class="sixcol">
+							${{entry.price}}/{{entry.units}}
+						</div>
+						<div class="onecol center last">
+							<a href="#{productName}" class="addtolist">&#57347;</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</div>
 
 </div>

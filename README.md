@@ -101,3 +101,4 @@ API Documentation
  -  [Node.js Native Mongo driver](http://mongodb.github.io/node-mongodb-native/)
  -  [Angular.js](http://docs.angularjs.org/api/)
  -  [Restangular](https://github.com/mgonto/restangular)
+ -  [Underscore.js](http://underscorejs.org/)
