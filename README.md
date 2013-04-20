@@ -25,6 +25,13 @@ Follow these steps to set up a local development environment:
 
 *Note:* On Windows, `import_sample_data` should run in Cygwin, though we should make a PowerShell version so Cygwin isn't required.
 
+After a git pull
+================
+
+If you encounter `cannot find module` errors starting `node`, run `npm install` again.
+
+If data looks strange, run `cd db; ./import_sample_data` again.
+
 Learning Angular.js
 ===================
 
