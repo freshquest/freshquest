@@ -16,7 +16,7 @@ app.use(express.logger());
 
 app.use(express['static'](__dirname + '/public'));
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5500;
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
