@@ -43,9 +43,9 @@ module.exports = function (app, db) {
         });
     });
 
-    // GET /api/farm~/5169e40b9f9477588676e816
-    // GET /api/farm~/wake_robin_farm
-    app.get('/api/farm~/:id', function (req, res, next) {
+    // GET /api/~farm/5169e40b9f9477588676e816
+    // GET /api/~farm/wake_robin_farm
+    app.get('/api/~farm/:id', function (req, res, next) {
 
         var id = req.params.id;
         var query = {};
@@ -67,8 +67,8 @@ module.exports = function (app, db) {
         });
     });
 
-    // GET /api/farm~
-    app.get('/api/farm~', function (req, res, next) {
+    // GET /api/~farm
+    app.get('/api/~farm', function (req, res, next) {
         var query = {};
         find('farm', query, true, function(err, farmdocs) {
             if (!farmdocs) {
