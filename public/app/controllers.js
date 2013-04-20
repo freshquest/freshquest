@@ -6,7 +6,7 @@
 
 //here, the 'farms' service is also automatically injected
 function FarmsController($scope,farms){
-    $scope.farmList = farms.getList();       //we set the farms as a variable on the scope, which will make it accessible to the partial
+    $scope.farmList = farms.all.getList();       //we set the farms as a variable on the scope, which will make it accessible to the partial
                                              //note that farms is a promise. Angular's templates will deal with this elegantly. 
 
     //This is just to verify that Restangular is working correctly
@@ -15,8 +15,8 @@ function FarmsController($scope,farms){
     // });
 }
 
-function FarmDetailController($scope,$routeParams,Restangular){
-    $scope.farm = Restangular.one('~farm', $routeParams.slug).get();
+function FarmDetailController($scope,$routeParams,farms){
+    $scope.farm = farms.one($routeParams.slug).get();
 
     // $scope.farm.then(function(resolvedFarm){
     //     console.log('resolvedFarm',resolvedFarm);
