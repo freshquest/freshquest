@@ -76,10 +76,10 @@ $(document).ready(function(){
 		var list, hash;
 		if(window.location.hash !== ''){
 			hash = window.location.hash.replace('#', '');
-			url = '/api/farm~/' + hash;
+			url = '/api/~farm/' + hash;
 			list = true;
 		}else{
-			url = '/api/farm~';
+			url = '/api/~farm';
             list = false;
         }
 		data = {};
@@ -107,7 +107,7 @@ $(document).ready(function(){
 		});
 	}
 	if($('#farms').length > 0){
-		url = '/api/farm~';
+		url = '/api/~farm';
 		data = {};
 		$.ajax({
 			dataType: "json",

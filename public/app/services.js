@@ -5,5 +5,5 @@
 angular.module('freshquest.service', ['restangular']).
     //here's how we use Restangular to set up a service for farms collection
     service('farms',function(Restangular){
-         return Restangular.all('farm~');
+         return Restangular.all('~farm');
     });

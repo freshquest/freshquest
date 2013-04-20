@@ -16,7 +16,7 @@ function FarmsController($scope,farms){
 }
 
 function FarmDetailController($scope,$routeParams,Restangular){
-    $scope.farm = Restangular.one('farm~', $routeParams.slug).get();
+    $scope.farm = Restangular.one('~farm', $routeParams.slug).get();
 
     // $scope.farm.then(function(resolvedFarm){
     //     console.log('resolvedFarm',resolvedFarm);
