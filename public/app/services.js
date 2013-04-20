@@ -47,3 +47,10 @@ mod.service('productList', function() {
 	});
 	return result;
 });
+
+mod.service('user',function(Restangular) {
+	return {
+		me: Restangular.one('~user', 'me'),
+		shoppingList: Restangular.all('~user_shopping_list/me')
+	}
+});

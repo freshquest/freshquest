@@ -1,5 +1,51 @@
-<div class="container">
+<div id="shopping_list" class="container">
 
-<fqtitle>Shopping List</fqtitle>
+	<div class="row title">
+		<div class="ninecol">
+			<h1>Shopping List</h1>
+		</div>
+		<div class="threecol center last">
+			<input type="reset" value="Clear All">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="twelvecol">
+			<div id="shedmap"><img src="/img/shedplan.jpg"/></div>
+		</div>
+	</div>
+
+	<div class="shed" ng-repeat="shed in sheds">
+		<div class="row title">
+			<div class="onecol">&nbsp;</div>
+			<div class="elevencol last">
+				<h2>Shed {{shed[0].shed}}</h2>
+			</div>
+		</div>
+		<div class="farmer" ng-repeat="entry in shed">
+			<div class="row line">
+				<div class="onecol">&nbsp;</div>
+				<div class="eightcol">
+						<h3>{{entry.farm.name}}</h3>
+						<a href="#" class="favorite {{entry.farm.isFavorite}}">&hearts;</a>
+				</div>
+				<div class="threecol center last">
+						Stall {{entry.stall}}
+				</div>
+			</div>
+			<ul>
+				<li class="row" ng-repeat="(name, isChecked) in entry.products">
+					<div class="onecol">&nbsp;</div>
+					<div class="eightcol">
+						<input type="checkbox" id="check{{name}}" name="products[]" ng-checked="isChecked" />
+						<label for="check{{name}}">{{name}}</label>
+					</div>
+					<div class="threecol center last">
+						<a href="#" class="delshopitem">&#10006;</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 
 </div>

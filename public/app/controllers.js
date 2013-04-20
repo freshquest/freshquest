@@ -32,7 +32,17 @@ function ProduceDetailController($scope, $routeParams){
 }
 
 
-function ShoppingListController($scope){
-    //TODO
+function ShoppingListController($scope, user){
+    $scope.shoppingList = user.shoppingList.getList();
+
+    $scope.sheds = $scope.shoppingList.then(function(result) {
+        return _.groupBy(result, function(item) {
+            return item.shed;
+        })
+    })
+
+    // $scope.sheds.then(function(resolved){
+    //     console.log('resolved',resolved);
+    // });
 }
 

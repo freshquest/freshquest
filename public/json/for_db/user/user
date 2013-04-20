@@ -1,9 +1,8 @@
 	{
 		"email" : "syrfreshquest@gmail.com",
-		"id" : "5160d4a5412ee6343a00000e",
-		"user_id" : "5160d4a5412ee6343a00000e",
-		"password" : "fresh",
-		"isFarrmer" : false,
+		"name" : "Sample User",
+		"id" : ObjectID("5169ec8c5f8edf2493aef86d"),
+		"passwordHash" : "passwordHash",
 		"farms" : [
 			{
 				"id" : "5160d4a5412ee6343a00000e",
@@ -23,7 +22,7 @@
 		],
 		"shoppingList" : [
 			{
-				"id" : "5160d4a5412ee6343a00000e",
+				"id" : "516afb1b214a12afacc069d5",
 				"products" : {
 					"Acorn Squash" : false,
 					"Apples, Gala" : true,
@@ -31,13 +30,13 @@
 				}
 			},
 			{
-				"id" : "5160d4ad412ee6343a00000f",
+				"id" : "516b03c92d5a140a6cf434d2",
 				"products" : {
 					"Mushrooms" : false
 				}
 			},
 			{
-				"id" : "5160d4b4412ee6343a000010",
+				"id" : "516b045e2d5a140a6cf434d4",
 				"products" : {
 					"Radishes" : false
 				}
