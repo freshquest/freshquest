@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="freshquest">
+<html id="ng-app" ng-app="freshquest" lang="en">
     <head>
         <title>FreshQuest AngularJS Demo</title>
 
@@ -27,7 +27,13 @@
         <script src="/js/html5shiv.js"></script>
         <![endif]-->
     </head>
-    <body>
+
+    <!--[if lt IE 7]>    <body class="no-js ie6 oldie">   <![endif]-->
+    <!--[if IE 7]>       <body class="no-js ie7 oldie">   <![endif]-->
+    <!--[if IE 8]>       <body class="no-js ie8 oldie">   <![endif]-->
+    <!--[if IE 9]>       <body class="no-js ie9">         <![endif]-->
+    <!--[if gt IE 9]>    <body class="no-js ie9">         <![endif]-->
+    <!--[if !IE]>        <body>                           <![endif]-->
         <!-- This is our navbar. We navigate through our app using regular anchor tags and hyperlinks. Very easy! -->
         <header class="container main">
             <div class="row">
@@ -44,9 +50,7 @@
         <nav class="mobile" ng-include="'app/partials/nav_primary.html'">
         </nav>
 
-        <div class="container">
-            <ng-view></ng-view>
-        </div>
+        <ng-view></ng-view>
 
         <footer id="footer" class="container main">
             <div class="row">

@@ -1,12 +1,16 @@
-<fqtitle>Available Products</fqtitle>
+<div class="container">
 
-<div id="products" ng-repeat="product in productList">
-	<a class="row product" href="#/produce/{{product.name}}">
-		<div class="onecol center">
-			<img ng-src="{{product.iconURL}}"/>
-		</div>
-		<div class="elevencol name last">
-			{{product.name}}
-		</div>
-	</a>
+	<fqtitle>Available Products</fqtitle>
+
+	<div id="products" ng-repeat="product in productList">
+		<a class="row product" href="#/produce/{{product.name}}">
+			<div class="onecol center">
+				<img ng-src="{{product.iconURL}}"/>
+			</div>
+			<div class="elevencol name last">
+				{{product.name}}
+			</div>
+		</a>
+	</div>
+
 </div>

@@ -1,28 +1,32 @@
-<fqtitle>Farms</fqtitle>
+<div class="container">
 
-<div id="farms" ng-repeat="farm in farmList">
-	<li class="row product_farm">
-		<a href="#/farm/{{farm.slug}}" class="block">
-			<div class="twocol center">
-				<img ng-src="{{farm.iconImage}}"/>
-			</div>
-			<div class="tencol last">
-				<h3>{{farm.name}}</h3>
-				<div class="row">
-					<div class="fourcol">
-						{{farm.location}}
-					</div>
-					<div class="twocol">
-						{{farm.distance}} miles
-					</div>
-					<div class="threecol">
-						{{farm.marketDayBooth | shedAndStall }}
-					</div>
-					<div class="threecol last">
-						<span class="rank" ng-bind-html-unsafe='farm.aggregateRating | stars'></span>
+	<fqtitle>Farms</fqtitle>
+
+	<div id="farms" ng-repeat="farm in farmList">
+		<li class="row product_farm">
+			<a href="#/farm/{{farm.slug}}" class="block">
+				<div class="twocol center">
+					<img ng-src="{{farm.iconImage}}"/>
+				</div>
+				<div class="tencol last">
+					<h3>{{farm.name}}</h3>
+					<div class="row">
+						<div class="fourcol">
+							{{farm.location}}
+						</div>
+						<div class="twocol">
+							{{farm.distance}} miles
+						</div>
+						<div class="threecol">
+							{{farm.marketDayBooth | shedAndStall }}
+						</div>
+						<div class="threecol last">
+							<span class="rank" ng-bind-html-unsafe='farm.aggregateRating | stars'></span>
+						</div>
 					</div>
 				</div>
-			</div>
-		</a>
-	</li>
+			</a>
+		</li>
+	</div>
+
 </div>
