@@ -6,8 +6,8 @@
 var development = !process.env.NODE_ENV;
 
 var express = require("express"),
-    rest = require('./rest'),
-    twiddle = require('./twiddle');
+    rest = require('./server/rest'),
+    twiddle = require('./server/twiddle');
 
 
 var app = express();
