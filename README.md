@@ -14,10 +14,10 @@ Follow these steps to set up a local development environment:
 4. Clone this repository.
 5. From the repository folder, run `npm install` to install the modules you need.
 6. Run `node index.js`.
-7. Open [http://localhost:5500/](http://localhost:5000/) and you should see the
-   home page. [http://localhost:5500/api/farm/](http://localhost:5000/api/farm/)
+7. Open [http://localhost:5500/](http://localhost:5500/) and you should see the
+   home page. [http://localhost:5500/api/farm/](http://localhost:5500/api/farm/)
    should give you a bunch of JSON.
-   [http://localhost:5500/#/farms](http://localhost:5000/farmers/)
+   [http://localhost:5500/#/farms](http://localhost:5500/farmers/)
    should give you a list of several farms.
 
 [install node]: http://nodejs.org/
