@@ -1,5 +1,53 @@
 <div class="container">
-
-	<fqtitle>{{farm.name}}</fqtitle>
-
+	
+	<div class="row title">
+		<div class="ninecol">
+			<h1>{{farm.name}}</h1>
+			<span class="actions">
+				<a href="#" class="favorite">&hearts;</a>
+				<span class="rank" ng-bind-html-unsafe='farm.aggregateRating | stars'></span>
+			</span>
+		</div>
+		<div class="threecol last shed_location">
+			<h3 class="normal">{{farm.marketDayBooth | shedAndStall }}</h3>
+		</div>
+	</div>
+	<div class="row header">
+		<div class="twelvecol">
+			<img src="{headerImage}"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="sixcol">
+			<h2>Location</h2>
+			<div class="map" lat="{latitude}" lng="{longitude}"></div>
+		</div>
+		<div class="sixcol last">
+			<h2>About</h2>
+			<p>{about}</p>
+		</div>
+	</div>
+	<div class="row nopad">
+		<div class="twelvecol">
+			<h2>Photos</h2>
+		</div>
+	</div>
+	<div class="row">
+		{photos}
+	</div>
+	<div class="row nopad">
+		<div class="twelvecol">
+			<h2>Available Products</h2>
+		</div>
+	</div>
+	<div ng-repeat="product in farm.marketDayBooth.sellSheet">
+		<a class="row product" href="#/produce/{{product}}">
+			<div class="onecol center">
+				<!--<img ng-src="{{product}}"/>-->
+			</div>
+			<div class="elevencol name last">
+				{{product.price}}
+			</div>
+		</a>
+	</div>
 </div>
