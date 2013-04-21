@@ -34,11 +34,11 @@
 				</div>
 			</div>
 			<ul>
-				<li class="row" ng-repeat="(name, isChecked) in entry.products">
+				<li class="row" ng-repeat="product in entry.products">
 					<div class="onecol">&nbsp;</div>
 					<div class="eightcol">
-						<input type="checkbox" id="check{{name}}" name="products[]" ng-checked="isChecked" />
-						<label for="check{{name}}">{{name}}</label>
+						<input type="checkbox" id="check{{name}}" name="products[]" ng-checked="product.isChecked" />
+						<label for="check{{name}}">{{product.item}}</label>
 					</div>
 					<div class="threecol center last">
 						<a href="#" class="delshopitem">&#10006;</a>
