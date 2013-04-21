@@ -15,3 +15,15 @@ mod.directive('fqtitle', function () {
 			</div>'
 	}
 });
+
+mod.directive('addtolist', function () {
+	return function (scope, element, attrs) {
+		element.bind("click", function () {
+			if (attrs.boothid && attrs.boothid.length &&
+				attrs.item && attrs.item.length) {
+				scope.addToShoppingList(attrs.boothid, attrs.item);
+				scope.$apply();
+			}
+		})
+	}
+});

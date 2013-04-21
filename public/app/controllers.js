@@ -4,6 +4,27 @@
 //The "$scope" variable is an AngularJS "service", and it is injected automatically at runtime.
 //We can put whatever data we want in the scope. Arbitrary JavaScript objects, doesn't matter.
 
+function addToShoppingList($http) {
+    return function (boothid, item) {
+        var data = { id: boothid, item: item };
+        $http.post('/api/~user_shopping_list_item', data).
+        success(function (data, status) {
+            var notice = $('<div id="notice">You added ' + item + ' to your shopping list.</div>');
+            notice.appendTo(document.body);
+            notice.css('top', $('header.main').outerHeight());
+            notice.hide();
+            notice.slideDown(500).delay(3000).slideUp(500, function(){$(this).remove()});
+        }).
+        error(function (data, status) {
+            var notice = $('<div id="notice" class="error">An error occurred adding ' + item + ' to your shopping list. Please reload the page and try again.</div>');
+            notice.appendTo(document.body);
+            notice.css('top', $('header.main').outerHeight());
+            notice.hide();
+            notice.slideDown(500).delay(6000).slideUp(500, function(){$(this).remove()});
+        });
+    }
+}
+
 //here, the 'farms' service is also automatically injected
 function FarmsController($scope,farms){
     $scope.farmList = farms.all.getList();       //we set the farms as a variable on the scope, which will make it accessible to the partial
@@ -15,8 +36,10 @@ function FarmsController($scope,farms){
     // });
 }
 
-function FarmDetailController($scope,$routeParams,farms){
+function FarmDetailController($scope,$routeParams,farms,$http){
     $scope.farm = farms.one($routeParams.slug).get();
+
+    $scope.addToShoppingList = addToShoppingList($http);
 
     // $scope.farm.then(function(resolvedFarm){
     //     console.log('resolvedFarm',resolvedFarm);
@@ -27,7 +50,7 @@ function ProduceController($scope, product){
     $scope.productList = product.productList;
 }
 
-function ProduceDetailController($scope, $routeParams, product) {
+function ProduceDetailController($scope, $routeParams, product, $http) {
     var productName = $routeParams.item;
     $scope.productIconImage = product.productImage(productName);
 
@@ -40,6 +63,8 @@ function ProduceDetailController($scope, $routeParams, product) {
         })
         return result;
     });
+
+    $scope.addToShoppingList = addToShoppingList($http);
 
     // $scope.product.then(function(resolved){
     //     console.log('resolved',resolved);
@@ -54,7 +79,11 @@ function ShoppingListController($scope, user){
         return _.groupBy(result, function(item) {
             return item.shed;
         })
-    })
+    });
+
+    $scope.shoppingListIsEmpty = $scope.shoppingList.then(function(result) {
+        return result.length == 0;
+    });
 
     // $scope.sheds.then(function(resolved){
     //     console.log('resolved',resolved);

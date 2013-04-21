@@ -15,6 +15,12 @@
 		</div>
 	</div>
 
+	<div ng-switch on="shoppingListIsEmpty">
+		<div ng-switch-when="true">
+			Your shopping list is empty. Find some produce to add!
+		</div>
+	</div>
+
 	<div class="shed" ng-repeat="shed in sheds">
 		<div class="row title">
 			<div class="onecol">&nbsp;</div>

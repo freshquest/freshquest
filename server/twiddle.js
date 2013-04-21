@@ -20,6 +20,11 @@ module.exports = function (app, db) {
             db.collection(collection).findOne(query, callback);
     }
 
+    // Callback signature should be (err, docs)
+    function update(collection, findDoc, updateDoc, callback) {
+        db.collection(collection).update(findDoc, updateDoc, true, callback);
+    }
+
     // GET /api/~farm/5169e40b9f9477588676e816
     // GET /api/~farm/wake_robin_farm
     app.get('/api/~farm/:id', function (req, res, next) {
@@ -131,4 +136,58 @@ module.exports = function (app, db) {
         });
     });
 
+    // POST /api/~user_shopping_list_item { id: 516afb1b214a12afacc069d5, product: Blueberries }
+    app.post('/api/~user_shopping_list_item', function (req, res, next) {
+        var boothID = req.body.id;
+        var product = req.body.item;
+        if(!hexTest.test(boothID) || !product || !product.length) {
+            next(makeError(409,'id and product are required'));
+            return;
+        } else {
+            boothID = BSON.ObjectID(boothID);
+        }
+        // Validate that the item is present in the booth
+        var query = { _id: boothID };
+        find('market_day_booth', query, false, function(err, booth) {
+            // FIXME make sure the booth is current, too
+            if (!booth) {
+                next(makeError(404,'Specified booth not found'));
+                return;
+            } else if (!booth.sellSheet ||
+                !booth.sellSheet.some(function (item) { return product == item.item; })) {
+                    next(makeError(404,'Specified product not found'));
+                    return;                
+            }
+            
+            // First, try to add it to an item which could already be there
+            var query = {
+                _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d'), // FIXME pull this from the session
+                "shoppingList.id": boothID
+            };
+            var updateDoc = { $addToSet : {"shoppingList.$.products": { item: product } } };
+            update('user', query, updateDoc, function(err, docs) {
+                if (err) {
+                    err.status = 500;
+                    next(err);
+                } else if (0 == docs) {
+                    var query2 = { _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d') };
+                    var updateDoc = { $addToSet: { shoppingList: { id: boothID, products: [ { item: product } ] } } };
+                    update('user', query2, updateDoc, function(err, docs) {
+                        if (err) {
+                            err.status = 500;
+                            next(err);
+                        } else if (docs != 1) {
+                            next(makeError(500,"Unable to add shopping list item"));
+                        } else {
+                            res.send(201);
+                        }
+                    })
+                } else {
+                    res.send(201);
+                }
+            })
+
+        });
+
+    });
 }

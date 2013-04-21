@@ -33,7 +33,9 @@
 						<span class="rank" ng-bind-html-unsafe='booth.farm.aggregateRating | stars'></span>
 					</div>
 					<div class="onecol center last">
-						<a href="#{productName}" class="addtolist">&#57347;</a>
+						<span class="addtolist" addtolist boothid="{{booth._id}}" item="{{booth.sellSheet[0].item}}">
+							&#57347;
+						</span>
 					</div>
 				</div>
 				<div ng-switch-when="true">
