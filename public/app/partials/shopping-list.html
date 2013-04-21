@@ -27,7 +27,7 @@
 				<div class="onecol">&nbsp;</div>
 				<div class="eightcol">
 						<h3>{{entry.farm.name}}</h3>
-						<a href="#" class="favorite {{entry.farm.isFavorite}}">&hearts;</a>
+						<a href="#" class="favorite" ng-class="{on:entry.farm.isFavorite}">&hearts;</a>
 				</div>
 				<div class="threecol center last">
 						Stall {{entry.stall}}

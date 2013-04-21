@@ -12,10 +12,11 @@
 	<div ng-repeat="booth in product.booths" ng-switch on="booth.hasVarieties">
 		<li class="row product_farm">
 			<div class="twocol center">
-				<a href="#/farm/{slug}"><img ng-src="{{booth.farm.iconImage}}"/></a>
+				<a href="#/farm/{{booth.farm.slug}}"><img ng-src="{{booth.farm.iconImage}}"/></a>
 			</div>
 			<div class="tencol last">
-				<h3><a href="#/farm/{slug}">{{booth.farm.name}}</a></h3>
+				<h3><a href="#/farm/{{booth.farm.slug}}">{{booth.farm.name}}</a>
+				<a href="#" class="favorite" ng-class="{on:booth.farm.isFavorite}">&hearts;</a></h3>
 				<div class="row">
 					<div class="threecol">
 						{{booth | shedAndStall}}
