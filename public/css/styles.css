@@ -118,6 +118,15 @@
 	nav.mobile {
 		display: none;
 	}
+	nav.main a.disabled {
+		color:#dbdbdb;
+	}
+	footer a.disabled {
+		color:#949494;
+	}
+	a.disabled {
+		cursor:default;
+	}
 	h2 {
 		font-size: 1.5em;
 		line-height: 1em;
