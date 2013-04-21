@@ -90,7 +90,7 @@ module.exports = function (app, db) {
             var shoppingList = userdoc.shoppingList;
             if (!shoppingList) shoppingList = {};
             async.each(shoppingList, function(listBooth, callback) {
-                var query2 = { _id: BSON.ObjectID(listBooth.id) };
+                var query2 = { _id: listBooth.id };
                 find('market_day_booth', query2, false, function(err, boothdoc) {
                     if (boothdoc) {
                         listBooth.shed = boothdoc.shed;
