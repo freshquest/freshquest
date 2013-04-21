@@ -1,7 +1,9 @@
 //we could define custom directives in this file, but right now we don't have any
 
 
-angular.module('freshquest.directive', []).directive('fqtitle', function () {
+var mod = angular.module('freshquest.directive', []);
+
+mod.directive('fqtitle', function () {
 	return {
 		restrict: 'E',
 		transclude: true,
