@@ -95,12 +95,14 @@ module.exports = function (app, db) {
                     if (boothdoc) {
                         listBooth.shed = boothdoc.shed;
                         listBooth.stall = boothdoc.stall;
-                    }
-                    var query3 = { _id: boothdoc.farmerId };
-                    find('farm', query3, false, function(err, farmdoc) {
-                        listBooth.farm = farmdoc;
+                        var query3 = { _id: boothdoc.farmerId };
+                        find('farm', query3, false, function(err, farmdoc) {
+                            listBooth.farm = farmdoc;
+                            callback(null);
+                        });
+                    } else {
                         callback(null);
-                    });
+                    }
                 });
             }, function(err) {
                 res.json(userdoc.shoppingList);
