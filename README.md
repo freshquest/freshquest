@@ -26,11 +26,11 @@ Follow these steps to set up a local development environment:
 *Note:* On Windows, `import_sample_data` should run in Cygwin, though we should
 make a PowerShell version so Cygwin isn't required.
 
-Running the server in `screen`
+Running the server in 'screen'
 ==============================
 
 You may find it convenient to run the server inside `screen`. From the project
-directory, run 'screen -c screenrc' to use the project's customized version.
+directory, run `screen -c screenrc` to use the project's customized version.
 
 The server should start immediately and you'll see `Listening on 5500`.
 If you see `Error: listen EADDRINUSE`, you probably have another instance running.
