@@ -1,0 +1,32 @@
+#
+# Run 'screen -c screenrc' from the project directory.
+#
+# The server should start immediately and you'll see "Listening on 5500" ...
+#
+# If you get 'Error: listen EADDRINUSE', you probably have another instance running.
+# Press C-a C-\ to quit the new instance, then run 'screen -r' or 'screen -d -r'.
+#
+# Key bindings:
+#
+#  - C-a R to restart the server
+#  - C-a 0 to see the server log
+#  - C-a 1 to see a mongo shell
+#  - C-a 2 to see a regular shell
+#  - C-a c to create an additional shell
+#
+# Note: C-a (i.e. control-A) is the screen escape sequence.
+#
+
+defscrollback 1000
+
+bind R eval 'screen 0' 'select 0' kill 'screen -t SERVER bash -i -c "node index.js; echo; echo Server terminated. Press C-a R to restart it or C-a C-\\\ to quit screen.; echo; while :; do read; done"'
+
+screen -t SERVER bash -i -c "node index.js; echo; echo Server terminated. Press C-a R to restart it or C-a C-\\\ to quit screen.; echo; while :; do read; done"
+screen -t mongo mongo freshquest
+screen
+
+select mongo
+select SERVER
+
+# This message would be a nice reminder on startup but makes the server's output take a long time to appear
+#windows 

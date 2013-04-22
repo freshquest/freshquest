@@ -23,7 +23,28 @@ Follow these steps to set up a local development environment:
 [install node]: http://nodejs.org/
 [install mongo]: http://docs.mongodb.org/manual/installation/
 
-*Note:* On Windows, `import_sample_data` should run in Cygwin, though we should make a PowerShell version so Cygwin isn't required.
+*Note:* On Windows, `import_sample_data` should run in Cygwin, though we should
+make a PowerShell version so Cygwin isn't required.
+
+Running the server in `screen`
+==============================
+
+You may find it convenient to run the server inside `screen`. From the project
+directory, run 'screen -c screenrc' to use the project's customized version.
+
+The server should start immediately and you'll see `Listening on 5500`.
+If you see `Error: listen EADDRINUSE`, you probably have another instance running.
+Press `C-a C-\` to quit the new instance, then run `screen -r` or `screen -d -r`
+to attach to the original instance.
+
+## Key bindings:
+ -  C-a R to restart the server
+ -  C-a 0 to see the server log
+ -  C-a 1 to see a mongo shell
+ -  C-a 2 to see a regular shell
+ -  C-a c to create an additional shell
+
+*Note:* C-a (i.e. control-A) is the screen escape sequence.
 
 After a git pull
 ================
