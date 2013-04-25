@@ -302,7 +302,7 @@
 	.product_farm .rank {
 		border-left: 0;
 	}
-	input[type="reset"]{
+	.button {
 		background: #666;
 		color: #fff;
 		border-radius: 10px;
@@ -312,7 +312,7 @@
 		font-weight: 500;
 		
 		border: 0px;
-		width: 100%;
+		/*width: 100%;*/
 		padding: .5em;
 		text-align: center;
 		text-transform: uppercase;

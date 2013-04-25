@@ -28,21 +28,6 @@ function addToShoppingList($http) {
     }
 }
 
-// 'success' callback is called only on success and should generally remove the deleted item
-function removeFromShoppingList($http) {
-    return function (boothid, item, success) {
-        var data = { id: boothid, item: item };
-        $http({method: 'DELETE', url: '/api/~user_shopping_list_item', data: data, headers: {'Content-Type': 'application/json'}}).
-        success(function (data, status) {
-            success();
-        }).
-        error(function (data, status) {
-            var message = 'An error occurred removing ' + item + ' to your shopping list. Please reload the page and try again.';
-            presentNotice(true, message);
-        });
-    }
-}
-
 //here, the 'farms' service is also automatically injected
 function FarmsController($scope,farms){
     $scope.farmList = farms.all.getList();       //we set the farms as a variable on the scope, which will make it accessible to the partial
@@ -103,7 +88,39 @@ function ShoppingListController($scope, user, $http){
         return result.length == 0;
     });
 
-    $scope.removeFromShoppingList = removeFromShoppingList($http);
+    // 'success' callback is called only on success and should generally remove the deleted item
+    $scope.removeFromShoppingList = function (boothid, item, success) {
+        var config = {
+            method: 'DELETE',
+            url: '/api/~user_shopping_list_item',
+            data: { id: boothid, item: item },
+            headers: {'Content-Type': 'application/json'}
+        }
+        $http(config).
+            success(function (data, status) {
+                success();
+            }).
+            error(function (data, status) {
+                var message = 'An error occurred removing ' + item + ' from your shopping list. Please reload the page and try again.';
+                presentNotice(true, message);
+            });
+    }
+
+    $scope.removeAll = function() {
+        var config = {
+            method: 'DELETE',
+            url: '/api/~user_shopping_list'
+        }
+        $http(config).
+            success(function (data, status) {
+                $scope.shoppingListIsEmpty = true;
+                $scope.sheds = {};
+            }).
+            error(function (data, status) {
+                var message = 'An error occurred clearing your shopping list. Please try again.';
+                presentNotice(true, message);
+            });        
+    }
 
     // $scope.sheds.then(function(resolved){
     //     console.log('resolved',resolved);

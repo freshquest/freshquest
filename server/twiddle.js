@@ -233,4 +233,19 @@ module.exports = function (app, db) {
         });
     });
 
+    app.del('/api/~user_shopping_list', function (req, res, next) {
+        var query = { _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d') } // FIXME pull this from the session
+        var updateDoc = { $set : { "shoppingList" : [ ] } };
+        update('user', query, updateDoc, function(err, docs) {
+            if (err) {
+                err.status = 500;
+                next(err);
+                return;
+            }
+            res.send(204);
+        });
+
+    });
+
+
 }
