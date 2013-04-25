@@ -347,10 +347,11 @@
 		position: relative;
 		top: -.5em
 	}
-	.delshopitem {
+	.removefromlist {
 		font-family: 'Entypo';
 		font-size: 2em;
 		color: #999;
+		cursor: pointer;
 	}
 	.lineBottom {
 		padding-bottom: 1em;

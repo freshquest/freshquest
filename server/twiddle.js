@@ -136,25 +136,36 @@ module.exports = function (app, db) {
         });
     });
 
+    // Validates req.body.item and req.body.id. Returns an object with a valid boothID and product,
+    // or invokes next with an error and returns null.
+    // Usage:
+    //   var params = checkShoppingListItemParams(req, next);
+    //   if (!params) return;
+
+    //        ... do something with req.body.item and req.boothID
+    function checkShoppingListItemParams (req, next) {
+        var product = req.body.item;
+        if(!hexTest.test(req.body.id) || !product || !product.length) {
+            next(makeError(400,'id and product are required'));
+            return null;
+        }
+        return { boothID: BSON.ObjectID(req.body.id), product: req.body.item };
+    }
+
     // POST /api/~user_shopping_list_item { id: 516afb1b214a12afacc069d5, product: Blueberries }
     app.post('/api/~user_shopping_list_item', function (req, res, next) {
-        var boothID = req.body.id;
-        var product = req.body.item;
-        if(!hexTest.test(boothID) || !product || !product.length) {
-            next(makeError(409,'id and product are required'));
-            return;
-        } else {
-            boothID = BSON.ObjectID(boothID);
-        }
+        var params = checkShoppingListItemParams(req, next);
+        if (!params) return;
+
         // Validate that the item is present in the booth
-        var query = { _id: boothID };
+        var query = { _id: params.boothID };
         find('market_day_booth', query, false, function(err, booth) {
             // FIXME make sure the booth is current, too
             if (!booth) {
                 next(makeError(404,'Specified booth not found'));
                 return;
             } else if (!booth.sellSheet ||
-                !booth.sellSheet.some(function (item) { return product == item.item; })) {
+                !booth.sellSheet.some(function (item) { return params.product == item.item; })) {
                     next(makeError(404,'Specified product not found'));
                     return;                
             }
@@ -162,16 +173,17 @@ module.exports = function (app, db) {
             // First, try to add it to an item which could already be there
             var query = {
                 _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d'), // FIXME pull this from the session
-                "shoppingList.id": boothID
+                "shoppingList.id": params.boothID
             };
-            var updateDoc = { $addToSet : {"shoppingList.$.products": { item: product } } };
+            var updateDoc = { $addToSet : {"shoppingList.$.products": { item: params.product } } };
             update('user', query, updateDoc, function(err, docs) {
                 if (err) {
                     err.status = 500;
                     next(err);
                 } else if (0 == docs) {
+                    // FIXME don't add when already present with checked: true
                     var query2 = { _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d') };
-                    var updateDoc = { $addToSet: { shoppingList: { id: boothID, products: [ { item: product } ] } } };
+                    var updateDoc = { $addToSet: { shoppingList: { id: params.boothID, products: [ { item: params.product } ] } } };
                     update('user', query2, updateDoc, function(err, docs) {
                         if (err) {
                             err.status = 500;
@@ -186,8 +198,39 @@ module.exports = function (app, db) {
                     res.send(201);
                 }
             })
-
         });
-
     });
+
+    app.del('/api/~user_shopping_list_item', function (req, res, next) {
+        var params = checkShoppingListItemParams(req, next);
+        if (!params) return;
+
+        var query = {
+            _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d'), // FIXME pull this from the session
+            "shoppingList.id": params.boothID
+        }
+        var updateDoc = { $pull : { "shoppingList.$.products" : { item : params.product } } };
+        update('user', query, updateDoc, function(err, docs) {
+            if (err) {
+                err.status = 500;
+                next(err);
+                return;
+            } else if (0 == docs) {
+                next(makeError(404, "Item not found in shopping list"));
+                return;
+            }
+
+            // Prune booths with no products
+            var query2 = { _id: BSON.ObjectID('5169ec8c5f8edf2493aef86d') }; // FIXME pull this from the session
+            var updateDoc2 = { $pull : { "shoppingList" : { products: { $size: 0 } } } };
+            update('user', query2, updateDoc2, function(err, docs) {
+                if (err) {
+                    err.status = 500;
+                    next(err);
+                }
+                res.send(204);
+            });
+        });
+    });
+
 }

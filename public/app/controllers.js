@@ -4,23 +4,41 @@
 //The "$scope" variable is an AngularJS "service", and it is injected automatically at runtime.
 //We can put whatever data we want in the scope. Arbitrary JavaScript objects, doesn't matter.
 
+function presentNotice(isError, message) {
+    var notice = angular.element('<div id="notice">' + message + '</div>');
+    if (isError) notice.addClass('error');
+    notice.appendTo(document.body);
+    notice.css('top', $('header.main').outerHeight());
+    notice.hide();
+    notice.slideDown(500).delay(isError ? 6000 : 3000).slideUp(500, function(){$(this).remove()});
+}
+
 function addToShoppingList($http) {
     return function (boothid, item) {
         var data = { id: boothid, item: item };
         $http.post('/api/~user_shopping_list_item', data).
         success(function (data, status) {
-            var notice = $('<div id="notice">You added ' + item + ' to your shopping list.</div>');
-            notice.appendTo(document.body);
-            notice.css('top', $('header.main').outerHeight());
-            notice.hide();
-            notice.slideDown(500).delay(3000).slideUp(500, function(){$(this).remove()});
+            var message = 'You added ' + item + ' to your shopping list.';
+            presentNotice(false, message);
         }).
         error(function (data, status) {
-            var notice = $('<div id="notice" class="error">An error occurred adding ' + item + ' to your shopping list. Please reload the page and try again.</div>');
-            notice.appendTo(document.body);
-            notice.css('top', $('header.main').outerHeight());
-            notice.hide();
-            notice.slideDown(500).delay(6000).slideUp(500, function(){$(this).remove()});
+            var message = 'An error occurred adding ' + item + ' to your shopping list. Please reload the page and try again.';
+            presentNotice(true, message);
+        });
+    }
+}
+
+// 'success' callback is called only on success and should generally remove the deleted item
+function removeFromShoppingList($http) {
+    return function (boothid, item, success) {
+        var data = { id: boothid, item: item };
+        $http({method: 'DELETE', url: '/api/~user_shopping_list_item', data: data, headers: {'Content-Type': 'application/json'}}).
+        success(function (data, status) {
+            success();
+        }).
+        error(function (data, status) {
+            var message = 'An error occurred removing ' + item + ' to your shopping list. Please reload the page and try again.';
+            presentNotice(true, message);
         });
     }
 }
@@ -72,7 +90,7 @@ function ProduceDetailController($scope, $routeParams, product, $http) {
 }
 
 
-function ShoppingListController($scope, user){
+function ShoppingListController($scope, user, $http){
     $scope.shoppingList = user.shoppingList.getList();
 
     $scope.sheds = $scope.shoppingList.then(function(result) {
@@ -84,6 +102,8 @@ function ShoppingListController($scope, user){
     $scope.shoppingListIsEmpty = $scope.shoppingList.then(function(result) {
         return result.length == 0;
     });
+
+    $scope.removeFromShoppingList = removeFromShoppingList($http);
 
     // $scope.sheds.then(function(resolved){
     //     console.log('resolved',resolved);
