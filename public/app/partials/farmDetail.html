@@ -14,17 +14,18 @@
 	</div>
 	<div class="row header">
 		<div class="twelvecol">
-			<img src="{headerImage}"/>
+			<img ng-src="{{farm.headerImage}}"/>
 		</div>
 	</div>
 	<div class="row">
 		<div class="sixcol">
 			<h2>Location</h2>
-			<div class="map" lat="{latitude}" lng="{longitude}"></div>
+			<div class="map google-map" center="mapCenter" draggable="true" zoom="mapZoom" markers="mapMarkers" mark-click="false" fit="true">
+			</div>
 		</div>
 		<div class="sixcol last">
 			<h2>About</h2>
-			<p>{about}</p>
+			<p>{{farm.about}}</p>
 		</div>
 	</div>
 	<div class="row nopad">
@@ -33,7 +34,9 @@
 		</div>
 	</div>
 	<div class="row">
-		{photos}
+		<div ng-repeat="url in farm.photoImages" class="threecol">
+			<img ng-src="{{url}}"/>
+		</div>
 	</div>
 	<div class="row nopad">
 		<div class="twelvecol">
@@ -41,13 +44,21 @@
 		</div>
 	</div>
 	<div ng-repeat="product in farm.marketDayBooth.sellSheet">
-		<a class="row product" href="#/produce/{{product}}">
+		<div class="row product">
 			<div class="onecol center">
-				<!--<img ng-src="{{product}}"/>-->
+				<img ng-src="{{product.item | productImage}}"/>
 			</div>
-			<div class="elevencol name last">
-				{{product.price}}
+			<div class="eightcol name">
+				<a href="/product_detail.html">{{product.item}}</a>
 			</div>
-		</a>
+			<div class="twocol">
+				${{product.price}}/{{product.units}}
+			</div>
+			<div class="onecol center last">
+				<span class="addtolist" addtolist boothid="{{farm.marketDayBooth._id}}" item="{{product.item}}">
+					&#57347;
+				</span>
+			</div>
+		</div>
 	</div>
 </div>

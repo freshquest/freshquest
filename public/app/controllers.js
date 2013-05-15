@@ -44,9 +44,19 @@ function FarmDetailController($scope,$routeParams,farms,$http){
 
     $scope.addToShoppingList = addToShoppingList($http);
 
-    // $scope.farm.then(function(resolvedFarm){
-    //     console.log('resolvedFarm',resolvedFarm);
-    // });
+    $scope.mapCenter = { latitude: 0, longitude: 0 };
+    $scope.mapZoom = 9;
+
+    $scope.farm.then(function(farm) {
+        if (angular.isDefined(farm.latitude) && angular.isDefined(farm.longitude)) {
+            var marketCoord = { latitude: 43.074703, longitude: -76.167891 };
+            var farmCoord = { latitude: farm.latitude, longitude: farm.longitude };
+            angular.extend($scope, {
+                mapCenter: marketCoord,
+                mapMarkers: [ farmCoord ],
+            });
+        }
+    });
 }
 
 function ProduceController($scope, product){

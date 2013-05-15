@@ -1,3 +1,7 @@
 [submodule "public/lib/restangular"]
 	path = public/lib/restangular
 	url = git://github.com/mgonto/restangular.git
+[submodule "public/lib/angular-google-maps"]
+	path = public/lib/angular-google-maps
+#	url = git://github.com/nlaplante/angular-google-maps.git
+	url = git://github.com/noa--/angular-google-maps.git

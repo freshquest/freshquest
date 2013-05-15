@@ -1,7 +1,7 @@
 /*jsl:import controllers.js */
 
 //we define our app "freshquest" here
-var app = angular.module('freshquest', ['freshquest.service','freshquest.directive']);
+var app = angular.module('freshquest', ['freshquest.service','freshquest.directive','google-maps']);
 
 //define our app's routes here, and map them to controllers and HTML fragment ("partial")
 //this will automatically integrate with the "view" directive on index.html
@@ -53,5 +53,12 @@ app.filter('shedAndStall', function() {
         if (marketDayBooth.stall)
             components.push('Stall ' + marketDayBooth.stall);
         return components.join(', ');
+    };
+});
+
+// Expects an item name
+app.filter('productImage', function(product) {
+    return function(item) {
+        return product.productImage(item);
     };
 });

@@ -123,3 +123,4 @@ API Documentation
  -  [Angular.js](http://docs.angularjs.org/api/)
  -  [Restangular](https://github.com/mgonto/restangular)
  -  [Underscore.js](http://underscorejs.org/)
+ -  [Google Maps for Angular.js](http://nlaplante.github.io/angular-google-maps/#!/usage)
