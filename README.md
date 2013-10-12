@@ -1,33 +1,58 @@
-Getting started
-===============
+FreshQuest
+==========
 
-Follow these steps to set up a local development environment:
+A prototype AngularJS + Node.js responsive web app to help people find local
+products at a large farmer's market.
 
-0. `git submodule init && git submodule update` if you haven't already.
-1. [Install Mongo][] any way you like and get it running.
-1. Confirm that Mongo is running. The easiest way is to run 'mongo' in a terminal.
-   In case of success, you'll see a Mongo prompt `>`. In case of failure you'll
-   get a connection error instead.
-2. `cd db; ./import_sample_data` (May overwrite content in `freshquest`
-    database.)
-3. [Install Node.js][install node].
-4. Clone this repository.
-5. From the repository folder, run `npm install` to install the modules you need.
-6. Run `node index.js`.
-7. Open [http://localhost:5500/](http://localhost:5500/) and you should see the
-   home page. [http://localhost:5500/api/farm/](http://localhost:5500/api/farm/)
-   should give you a bunch of JSON.
-   [http://localhost:5500/#/farms](http://localhost:5500/farmers/)
-   should give you a list of several farms.
+Setting up a development environment
+------------------------------------
+
+1. If you're in Windows, install Cygwin.
+
+1. [Install Mongo][] and get it running.
+     - On Mac OS, install Homebrew and run `sudo brew install mongodb`.
+     - You can do this any way you like.
+     - To confirm that Mongo is running, run `mongo` in a terminal. In case of
+       success, you'll see a Mongo prompt `>`. In case of failure you'll get a
+       connection error instead.
+
+2. Install Node.js:
+
+        $ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+        $ nvm install 0.10.5
+        $ nvm use
+
+3. Install packages:
+
+        $ npm install
+
+4. If you haven't already:
+
+        $ `git submodule init && git submodule update` if you haven't already.
+
+5. Load sample data:
+
+        $ cd db
+        $ ./import_sample_data
+
+Running the development environment
+-----------------------------------
+
+1. Ensure that Mongo is running.
+2. Start the server:
+
+        $ Run `node index.js`.
+
+3. Open the home page:
+
+    [http://localhost:5500/](http://localhost:5500/)
 
 [install node]: http://nodejs.org/
 [install mongo]: http://docs.mongodb.org/manual/installation/
-
-*Note:* On Windows, `import_sample_data` should run in Cygwin, though we should
-make a PowerShell version so Cygwin isn't required.
+[cygwin]: http://www.cygwin.com/
 
 Running the server in 'screen'
-==============================
+------------------------------
 
 You may find it convenient to run the server inside `screen`. From the project
 directory, run `screen -c screenrc` to use the project's customized version.
@@ -47,14 +72,14 @@ to attach to the original instance.
 *Note:* C-a (i.e. control-A) is the screen escape sequence.
 
 After a git pull
-================
+----------------
 
 If you encounter `cannot find module` errors starting `node`, run `npm install` again.
 
 If data looks strange, run `cd db; ./import_sample_data` again.
 
 Learning Angular.js
-===================
+-------------------
 
 First, watch some of these [great introductory videos][egghead].
 
@@ -65,7 +90,7 @@ in the [angular_example branch][angular_example].
 [egghead]: http://www.egghead.io/
 
 API Overview
-============
+------------
 
 Here's a quick description of the REST API:
 
@@ -105,18 +130,18 @@ The collections we have right now are:
 I just stuck the JSON files straight into the database, without really worrying about whether this would be the schema we'd like to stick with - this is a topic that requires a separate discussion.
 
 Getting set up for deployment
-=============================
+-----------------------------
 
 `heroku git:remote -a freshquest`
 
 Deployment
-==========
+----------
 
 1. `git push heroku master`
 2. Open http://freshquest.herokuapp.com
 
 API Documentation
-=================
+-----------------
 
  -  [Express](http://expressjs.com/api.html)
  -  [Node.js Native Mongo driver](http://mongodb.github.io/node-mongodb-native/)
